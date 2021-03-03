@@ -3,6 +3,16 @@ var downPressed = false;
 var leftPressed = false;
 var rightPressed = false;
 var lastPressed = false;
+var playing = false;
+
+function startGame() {
+	playing = true;
+	
+	if (playing == true) {
+		var start = document.getElementById('start');
+		start.style.display = 'none';
+	}
+}
 
 function keyup(event) {
 	var player = document.getElementById('player');
@@ -101,9 +111,11 @@ function keydown(event) {
 
 
 function myLoadFunction() {
-	timeout = setInterval(move, 10);
+	
 	document.addEventListener('keydown', keydown);
 	document.addEventListener('keyup', keyup);
+	document.addEventListener('click', startGame);
+	timeout = setInterval(move, 10);
 }
 
 
