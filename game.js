@@ -4,6 +4,7 @@ var leftPressed = false;
 var rightPressed = false;
 var lastPressed = false;
 var playing = false;
+var lives = 0;
 
 function startGame() {
 	playing = true;
@@ -11,11 +12,14 @@ function startGame() {
 	if (playing == true) {
 		var start = document.getElementById('start');
 		start.style.display = 'none';
+		lives = 3;
 	}
 }
 
 function keyup(event) {
 	var player = document.getElementById('player');
+
+if (playing == true) {
 	if (event.keyCode == 37) {
 		leftPressed = false;
 		lastPressed = 'left';
@@ -35,7 +39,14 @@ function keyup(event) {
 
 	player.className = 'character stand ' + lastPressed;
 }
+}
 
+function bomb() {
+	var bomb = document.getElementById('bomb');
+	if (playing == true) {
+		
+	}
+}
 
 function move() {
 	var player = document.getElementById('player');
@@ -114,7 +125,7 @@ function myLoadFunction() {
 	
 	document.addEventListener('keydown', keydown);
 	document.addEventListener('keyup', keyup);
-	document.addEventListener('click', startGame);
+	start.addEventListener('click', startGame);
 	timeout = setInterval(move, 10);
 }
 
