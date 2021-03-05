@@ -44,7 +44,9 @@ if (playing == true) {
 function bomb() {
 	var bomb = document.getElementById('bomb');
 	if (playing == true) {
-		
+		var element = document.getElementById('bomb');
+		var positionTop = element.offsetTop;
+		element.style.top = positionTop + 10 + 'px';
 	}
 }
 
@@ -127,6 +129,7 @@ function myLoadFunction() {
 	document.addEventListener('keyup', keyup);
 	start.addEventListener('click', startGame);
 	timeout = setInterval(move, 10);
+	bombTimer = setInterval(bomb,10);
 }
 
 
