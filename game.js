@@ -47,6 +47,10 @@ function bomb() {
 		var element = document.getElementById('bomb');
 		var positionTop = element.offsetTop;
 		element.style.top = positionTop + 10 + 'px';
+
+		if (element.classList.contains('sky')== false) {
+			alert(explode);
+		}
 	}
 }
 
