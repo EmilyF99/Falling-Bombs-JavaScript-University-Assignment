@@ -16,6 +16,7 @@ function startGame() {
 		start.style.display = 'none';
 		lives = 3;
 	}
+
 }
 
 function keyup(event) {
@@ -42,6 +43,22 @@ if (playing == true) {
 	player.className = 'character stand ' + lastPressed;
 }
 
+function hit() {
+	player.classList.add('hit');
+	player.classList.remove('stand');	
+	lives = lives--;
+	
+	if(lives= 0); {
+	gameover();	
+	}
+	
+}
+
+function gameover(){
+	player.classList.add('dead');
+	player.classList.remove('stand');
+}
+
 function bomb() {
 	var bomb = document.getElementById('bomb');
     
@@ -57,12 +74,13 @@ function bomb() {
 	if (element.classList.contains('solid') == true) {
 			bomb.style.top = newTop + 'px';
 			collision = true;
-			alert("hit");
 		}
 
 	if (collision == true){
 	bomb.classList.add('explosion');
     bomb.classList.remove('bomb');
+	hit();
+
 	}
 
 
