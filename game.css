@@ -3,7 +3,6 @@
 
 body {background-image: url(images/bg.png); margin: 0; padding: 0; font-family: 'Oxygen-Regular', sans-serif; overflow: hidden;}
 
-
 .sky {
 	position: absolute;
 	width: 100vw;
@@ -24,205 +23,8 @@ aside {width: 200px; position: fixed; height: 100vh; left: 100%; margin-left: -2
 aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom: 20px; overflow: auto;}
 .heads li, .bodies li {width: 32px; height: 32px; background-position: 0 -64px; float: left; cursor: pointer; border: 2px solid #ddd; margin-right: 4px;}
 .heads li:hover, .bodies li:hover {border: 2px solid red;}
-#head0 {background-image: url(images/head0.png);}
-
-#head1 {background-image: url(images/head1.png);}
-#head2 {background-image: url(images/head2.png);}
-#head3 {background-image: url(images/head3.png);}
-#head4 {background-image: url(images/head4.png);}
 
 .bodies li {background-position: 64px 0px;}
-#body0 {background-image: url(images/body0.png);}
-#body1 {background-image: url(images/body1.png);}
-#body2 {background-image: url(images/body2.png);}
-#body3 {background-image: url(images/body3.png);}
-#body4 {background-image: url(images/body4.png);}
-
-.tree {position: absolute; left: 400px; top: 300px;}
-
-#opponent {left: 500px; top: 500px;}
-#opponent .body {background-image: url(images/body1.png);}
-#opponent .head {background-image: url(images/head1.png);}
-
-
-.enemy {position: absolute;}
-.enemy .head {
-	width: 32px;
-	height: 32px;
-	position: relative;
-}
-
-.enemy .body {
-	width: 32px;
-	height: 24px;
-	z-index:-1;
-
-}
-
-.enemy.grey .head {
-	background-image: url(images/baddygray.png);
-}
-.enemy.grey .body {
-	background-image: url(images/baddygray.png);
-	top: 32px;
-
-}
-
-.enemy.stand.up,.enemy.stand.down,.enemy.walk.down,.enemy.walk.up {width: 64px; height: 64px;}
-.enemy.stand.left,.enemy.stand.right,.enemy.walk.left,.enemy.walk.right {width: 64px; height: 64px;}
-
-
-.enemy {
-	overflow: hidden;
-}
-
-.enemy.stand.left .head {
-	margin-left: 16px;
-	background-position: -32px 0;
-}
-
-.enemy.stand.left .body {
-	margin-left: 18px;
-	width: 25px;
-	margin-top: -6px;
-	background-position: -88px -56px;
-}
-
-.enemy.stand.right .head {
-	background-position: -96px 0;
-}
-
-.enemy.stand.right .body {
-	margin-left: 4px;
-	width: 25px;
-	margin-top: -6px;
-	background-position: -88px -32px;
-}
-
-.enemy.stand.down .head {
-	background-position: -64px 0;
-	margin-left: 6px ;
-}
-
-.enemy.stand.down .body {
-	margin-top: -10px;
-	width: 44px;
-	height: 26px;
-	background-position: -44px -32px;
-}
-
-.enemy.stand.up .head {
-	margin-left: 6px;
-	background-position: 0px 0;
-}
-
-.enemy.stand.up .body {
-	margin-top: -12px;
-	width: 44px;
-	height: 26px;
-	background-position: 0px -32px;
-}
-
-
-.enemy.walk.up .head {
-	margin-left: 6px;
-	animation: headbob 0.5s infinite;
-	background-position: 0px 0;
-}
-
-.enemy.walk.up .body {
-	margin-top: -12px;
-	width: 44px;
-	height: 26px;
-	background-position: 0px -32px;
-	animation: enemywalkup 1s steps(1) infinite;
-}
-
-
-
-@keyframes enemywalkup {
-   0%, 100% { background-position: 0px -32px; }
-     50% { background-position: 0px -57px; height: 32px; margin-top: -16px;}
-}
-
-
-.enemy.walk.down .head {
-
-	margin-left: 6px;
-	animation: headbob 0.5s infinite;
-	background-position: -64px 0;
-}
-
-.enemy.walk.down .body {
-	margin-top: -10px;
-	width: 44px;
-	height: 26px;
-	background-position: -44px -32px;
-	animation: enemywalkdown 1s steps(1) infinite;
-}
-
-@keyframes enemywalkdown {
-   0%, 100% { background-position: -44px -32px; }
-     50% { background-position: -44px -57px; height: 25px; margin-top: -12px; }
-}
-
-
-
-.enemy.walk.left .head {
-	animation: headbob 0.5s infinite;
-	background-position: -32px 0;
-}
-
-.enemy.walk.left .body {
-	margin-left: 4px;
-	width: 25px;
-	margin-top: -6px;
-
-	background-position: -88px -56px;
-	animation: enemywalkleft 1s steps(1) infinite;
-}
-
-
-
-@keyframes enemywalkleft {
-   0%, 100% { background-position: -88px -56px; }
-     50% { background-position: -32px -90px; height: 25px; height: 30px;
-	width: 32px; margin-left: -0px; margin-top: -12px;}
-}
-
-
-
-.enemy.walk.right .head {
-	background-position: -96px 0;
-	animation: headbob 0.5s infinite;
-}
-
-.enemy.walk.right .body {
-	margin-left: 4px;
-	width: 25px;
-	margin-top: -6px;
-	background-position: -88px -32px;
-	animation: enemywalkright 1s steps(1) infinite;
-}
-
-
-@keyframes enemywalkright {
-   0%, 100% { background-position: -88px -32px; }
-     50% { background-position: 0px -90px; height: 25px; height: 30px;
-	width: 32px; margin-left: -0px; margin-top: -12px;}
-}
-
-
-
-.enemy.appear {
-	display: block;
-	overflow: hidden;
-	position: absolute;
-	height: 56px;
-
-}
-
-
 
 .weapon.bow {
 	background-image: url(images/sprites.png);
@@ -240,88 +42,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	display: block;
 }
 
-.enemy.stand.left.fire .body {
-	background-position: -32px -90px;
-	margin-top: -8px;
-	margin-left: 16px;
-	width: 32px;
-	height: 31px;
-}
-
-.enemy.stand.right.fire .body {
-	background-position: 0px -90px;
-	margin-top: -8px;
-	margin-left: 0px;
-	width: 32px;
-	height: 30px;
-}
-
-.enemy.stand.down.fire .body {
-	background-position: -44px -57px;
-
-}
-
-
-.enemy.stand.up.fire .body {
-	background-position: 0px -57px;
-	margin-top: -16px;
-	height: 32px;
-}
-.enemy.walk.left.fire .weapon.bow, .enemy.stand.left.fire .weapon.bow {
-	top: 12px;
-	left: 2px;
-	z-index: -1;
-	animation: enemyfireleft 1s ease-in forwards;
-}
-
-.enemy.walk.right.fire .weapon.bow, .enemy.stand.right.fire .weapon.bow {
-	top: 12px;
-	left: 6px;
-	z-index: -1;
-	animation: enemyfireright 1s ease-in forwards;
-}
-
-.enemy.fire .weapon.bow, .enemy.stand.down.fire .weapon.bow {
-	top: 12px;
-	left: 6px;
-	z-index: 2;
-	animation: enemyfiredown 1s ease-in forwards;
-}
-
-.enemy.walk.up.fire .weapon.bow, .enemy.stand.up.fire .weapon.bow {
-	top: 12px;
-	left: 6px;
-	z-index: -1;
-	animation: enemyfireup 1s ease-in forwards;
-}
-
-
-@keyframes enemyfireright {
-	 0% { transform: rotate(90deg); margin-top: 6px; margin-left: 18px; }
-     50% { transform: rotate(0deg); margin-top: 0; margin-left: 24px;}
-     100% { transform: rotate(90deg); margin-top: 6px; margin-left: 18px; }
-}
-
-
-@keyframes enemyfireleft {
-	 0% { transform: rotate(90deg); margin-top: 6px; margin-left: 8px; }
-     50% { transform: rotate(180deg); margin-top: 0; margin-left: 0;}
-     100% { transform: rotate(90deg); margin-top: 6px; margin-left: 8px; }
-}
-
-@keyframes enemyfiredown {
-	 0% { transform: rotate(0deg); margin-top: 6px; margin-left: 18px; }
-     50% { transform: rotate(90deg); margin-top: 14px; margin-left: 6px;}
-     100% { transform: rotate(0deg); margin-top: 6px; margin-left: 18px; }
-}
-
-@keyframes enemyfireup {
-	 0% { transform: rotate(0deg); margin-top: 6px; margin-left: 24px; }
-     50% { transform: rotate(-90deg); margin-top: -22px; margin-left: 8px;}
-     100% { transform: rotate(0deg); margin-top: 6px; margin-left: 24px; }
-}
-
-
 .character.fire.stand.right .bow, .character.fire.walk.right .bow {
 	top: 12px;
 	left: 6px;
@@ -336,7 +56,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	animation: enemyfiredown 0.2s ease-in forwards;
 }
 
-
 .character.fire.stand.left .bow, .character.fire.walk.left .bow {
 	top: 8px;
 	left: -16px;
@@ -350,7 +69,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	z-index: -2;
 	animation: enemyfireup 0.2s ease-in forwards;
 }
-
 
 .character.fire.stand.right .body {
 	background-position: -96px -192px;
@@ -371,59 +89,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	background-position: -64px -192px;
 	margin-top: 14px;
 }
-
-
-.enemy.appear .head {
-	margin-top: 120px;
-	animation-delay: 35s;
-	animation: enemystand 1s ease-in 3s forwards;
-}
-
-.enemy.hide .head {
-	animation: enemyhide 1s ease-in forwards;
-}
-
-@keyframes enemystand {
-	 0% { margin-top: 120px; }
-     100% { margin-top: 0;}
-}
-
-@keyframes enemyhide {
-	 0% { margin-top: 0px; }
-     100% { margin-top: 120px;}
-}
-
-.enemy.appear.left:before {
-	margin-left: 12px;
-}
-
-.enemy.appear:before {
-	content: "";
-	width: 32px; height: 24px;
-	background-image: url(images/sprites.png);
-	background-position: -96px -82px;
-	display: block;
-	position: absolute;
-	z-index: 999;
-	margin-left: 6px;
-	margin-top:  32px;
-	animation: shakebush 1s steps(1) 3;
-}
-
-
-.enemy.hide:before {
-	content: "";
-	width: 32px; height: 24px;
-	background-image: url(images/sprites.png);
-	background-position: -96px -82px;
-	display: block;
-	position: absolute;
-	z-index: 999;
-	margin-left: 6px;
-	margin-top:  32px;
-	animation: shakebush2 1s steps(1) 3, removebush 3s 3s forwards;
-}
-
 
 .arrow {
 	background-image: url(images/sprites.png);
@@ -467,7 +132,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 }
 
 .start {
-
 	color: white;
 	text-shadow: 2px 2px 2px #000;
 	position: absolute;
@@ -487,6 +151,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	border-radius: 20px;
 	box-shadow: 4px 4px 4px #000;
 }
+
 .explosion {
 	width: 128px;
 	height: 160px;
@@ -552,22 +217,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	transform: rotate(90deg)
 }
 
-@keyframes shakebush {
-   0%, 100% { background-position: -96px -82px; }
-     50% { background-position: -96px -106px;}
-}
-
-@keyframes shakebush2 {
-   0%, 100% { background-position: -96px -82px; }
-     50% { background-position: -96px -106px;}
-}
-
-
-@keyframes removebush {
-   0%{ opacity: 1; }
-     100% { opacity: 0;}
-}
-
 .character.stand.up .head {
 	background-position: 0px 0px;
 }
@@ -600,8 +249,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	background-position: -96px 0px;
 }
 
-
-
 .character.walk.up .head {
 	background-position: 0px 0px;
 	animation: headbob 0.5s infinite;
@@ -610,7 +257,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 .character.walk.up .body {
     animation: walkup 1s steps(3) infinite;
 }
-
 
 .character.walk.down .head {
 	background-position: 0px -64px;
@@ -637,9 +283,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
      50% { background-position: -32px -128px; }
 }
 
-
-
-
 .character.walk.right .head {
 	background-position: 0px -96px;
 	margin-top: -3px;
@@ -656,8 +299,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
      50% { background-position: -96px -128px; }
 }
 
-
-
 @keyframes walkup {
    0%, 100% { background-position:  0px  -32px; }
      50% { background-position: 0px -128px; }
@@ -669,48 +310,23 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
      50% { background-position: -64px -128px; }
 }
 
-
 @keyframes headbob {
    0%, 100% { margin-top: 0px; }
      50% { margin-top: 1px; }
 }
-
 
 @keyframes headbob2 {
    0%, 100% { margin-left: -2px; }
      50% { margin-left: 0px; }
 }
 
-
 @keyframes headbob3 {
    0%, 100% { margin-left: 2px; }
      50% { margin-left: 0px; }
 }
 
-.enemy.dead:before {
-	content: "";
-	width: 32px;
-	height: 32px;
-	display: block;
-	position: absolute;
-	margin-left: 8px;
-	margin-top: 12px;
-	background-image: url(images/sprites.png);
-	animation: enemydie 2s steps(1) forwards;
-	background-position: 0px -48px;
-}
-
-.enemy.dead .body, .enemy.dead .weapon, .enemy.dead .head {
-	animation: fadeout 0.5s forwards;
-}
-
 @keyframes fadeout {
 	0% {opacity: 1;}
-	100% {opacity: 0;}
-}
-@keyframes enemydie {
-	0%,20%,40%,60%,80% { background-position: 0px -48px; }
-	10%,30%,50%,70%,90% { background-position: -32px -48px; }
 	100% {opacity: 0;}
 }
 
@@ -751,8 +367,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	margin-left: -3px;
 }
 
-
-
 .character.hit.up .head {
 	background-position: 0px 0px ;
 }
@@ -761,7 +375,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	background-position: -128px -160px;
 	margin-top: 16px;
 }
-
 
 .character.hit.down .head {
 	background-position: 0px -464px ;
@@ -800,7 +413,6 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
      75% { background-position:  -96px  -480px; }
      100% {display: none;  opacity: 0;}
 }
-
 
 .hud {position: fixed; width: 100%; z-index: 1000;}
 ul {list-style-type: none;float: right; margin-right: 20px;}
