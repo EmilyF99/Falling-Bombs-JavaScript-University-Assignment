@@ -47,8 +47,20 @@ function hit() {
 	player.classList.add('hit');
 	player.classList.remove('stand');	
 	lives = lives--;
-	
-	if(lives= 0); {
+
+	if(lives = 2) {
+	var life1 = document.getElementById('life1');
+	life1.style.display = "none";		
+	}
+
+	if(lives = 1) {
+	var life2 = document.getElementById('life2');	
+	life2.style.display = "none";	
+	}
+
+	if(lives = 0); {
+	var life3 = document.getElementById('life3');
+	life3.style.display = "none";
 	gameover();	
 	}
 	
