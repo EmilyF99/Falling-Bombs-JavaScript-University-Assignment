@@ -438,11 +438,21 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	background-image: url(images/sprites.png);
 	width: 31px;
 	height: 10px;
+	left: 0px;
+	position: absolute;
+	background-position: -96px -401px;
+	transform: rotate(90deg);
+}
+
+.bomb2 {
+	background-image: url(images/sprites.png);
+	width: 31px;
+	height: 10px;
+	left: 0px;
 	position: absolute;
 	background-position: -96px -401px;
 	transform: rotate(90deg)
 }
-
 .start:before {
 	background-image: url(images/head0.png);
 	background-repeat: no-repeat;

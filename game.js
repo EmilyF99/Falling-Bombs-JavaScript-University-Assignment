@@ -5,6 +5,7 @@ var rightPressed = false;
 var lastPressed = false;
 var playing = false;
 var lives = 0;
+var bombCount = 0;
 
 function startGame() {
 	playing = true;
@@ -36,21 +37,33 @@ if (playing == true) {
 		downPressed = false;
 		lastPressed = 'down';
 	}
-
-	player.className = 'character stand ' + lastPressed;
 }
+	player.className = 'character stand ' + lastPressed;
 }
 
 function bomb() {
 	var bomb = document.getElementById('bomb');
-	if (playing == true) {
-		var element = document.getElementById('bomb');
-		var positionTop = element.offsetTop;
-		element.style.top = positionTop + 10 + 'px';
 
-		if (element.classList.contains('sky')== false) {
-			alert(explode);
-		}
+	if (playing == true) {
+		var positionTop = bomb.offsetTop;
+		bomb.style.top = positionTop + 10 + 'px';
+
+		//var xPositionArray = [];
+		//xPositionArray[1] = '0';
+		//xPositionArray[2] = '200';
+		//xPositionArray[3] = '400';
+		//xPositionArray[4] = '600';
+		//xPositionArray[5] = '800';
+		//xPositionArray[6] = '1000';
+		//xPositionArray[7] = '1200';
+		//xPositionArray[8] = '1400';
+		//xPositionArray[9] = '1600';
+		//xPositionArray[10] = '2000';
+
+
+		//var xPosition = Math.ceil(Math.random() * 10);
+		//bomb.style.left = xPositionArray[xPosition] + 'px';
+		//bombCount ++;
 	}
 }
 
