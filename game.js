@@ -6,6 +6,7 @@ var lastPressed = false;
 var playing = false;
 var lives = 0;
 var bombCount = 0;
+var collision = false;
 
 function startGame() {
 	playing = true;
@@ -43,10 +44,27 @@ if (playing == true) {
 
 function bomb() {
 	var bomb = document.getElementById('bomb');
-
+    
 	if (playing == true) {
 		var positionTop = bomb.offsetTop;
 		bomb.style.top = positionTop + 10 + 'px';
+	}
+	var positionTop = bomb.offsetTop;	
+	var newTop = positionTop + 1;
+    var element = document.elementFromPoint(bomb.offsetLeft, newTop+32);
+        
+		
+	if (element.classList.contains('solid') == true) {
+			bomb.style.top = newTop + 'px';
+			collision = true;
+			alert("hit");
+		}
+
+	if (collision == true){
+	bomb.classList.add('explosion');
+    bomb.classList.remove('bomb');
+	}
+
 
 		//var xPositionArray = [];
 		//xPositionArray[1] = '0';
@@ -65,7 +83,7 @@ function bomb() {
 		//bomb.style.left = xPositionArray[xPosition] + 'px';
 		//bombCount ++;
 	}
-}
+
 
 function move() {
 	var player = document.getElementById('player');
@@ -92,7 +110,7 @@ function move() {
 		if (element.classList.contains('sky') == false) {
 			player.style.top = newTop + 'px';	
 		}
-		
+
 		if (leftPressed == false) {
 			if (rightPressed == false) {
 				player.className = 'character walk up';
@@ -106,8 +124,6 @@ function move() {
 		if (element.classList.contains('sky') == false) {
 			player.style.left = newLeft + 'px';	
 		}
-
-
 		player.className = 'character walk left';
 	}
 	if (rightPressed) {
@@ -117,7 +133,6 @@ function move() {
 		if (element.classList.contains('sky') == false) {
 			player.style.left = newLeft + 'px';		
 		}
-
 		player.className = 'character walk right';
 	}
 
@@ -146,7 +161,7 @@ function myLoadFunction() {
 	document.addEventListener('keyup', keyup);
 	start.addEventListener('click', startGame);
 	timeout = setInterval(move, 10);
-	bombTimer = setInterval(bomb,10);
+	bombTimer = setInterval(bomb,50);
 }
 
 
