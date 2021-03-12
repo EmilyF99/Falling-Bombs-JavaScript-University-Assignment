@@ -1,3 +1,4 @@
+//Variable List
 var upPressed = false;
 var downPressed = false;
 var leftPressed = false;
@@ -8,6 +9,8 @@ var lives;
 var bombCount = 0;
 var collision = false;
 
+
+//Runs at when start buttton is clicked, hides the button and sets presets
 function startGame() {
 	playing = true;
 	
@@ -19,6 +22,7 @@ function startGame() {
 
 }
 
+//Player Movement Code
 function keyup(event) {
 	var player = document.getElementById('player');
 
@@ -42,78 +46,6 @@ if (playing == true) {
 }
 	player.className = 'character stand ' + lastPressed;
 }
-
-function hit() {
-	player.classList.add('hit');
-	player.classList.remove('stand');	
-	lives = lives--;
-
-	if(lives == 2) {
-	var life1 = document.getElementById('life1');
-	life1.style.display = "none";		
-	}
-
-	if(lives == 1) {
-	var life2 = document.getElementById('life2');	
-	life2.style.display = "none";	
-	}
-
-	if(lives == 0); {
-	var life3 = document.getElementById('life3');
-	life3.style.display = "none";
-	gameover();	
-	}
-	
-}
-
-function gameover(){
-	player.classList.add('dead');
-	player.classList.remove('stand');
-}
-
-function bomb() {
-	var bomb = document.getElementById('bomb');
-    
-	if (playing == true) {
-		var positionTop = bomb.offsetTop;
-		bomb.style.top = positionTop + 10 + 'px';
-	}
-	var positionTop = bomb.offsetTop;	
-	var newTop = positionTop + 1;
-    var element = document.elementFromPoint(bomb.offsetLeft, newTop+32);
-        
-		
-	if (element.classList.contains('solid') == true) {
-			bomb.style.top = newTop + 'px';
-			collision = true;
-		}
-
-	if (collision == true){
-	bomb.classList.add('explosion');
-    bomb.classList.remove('bomb');
-	hit();
-
-	}
-
-
-		//var xPositionArray = [];
-		//xPositionArray[1] = '0';
-		//xPositionArray[2] = '200';
-		//xPositionArray[3] = '400';
-		//xPositionArray[4] = '600';
-		//xPositionArray[5] = '800';
-		//xPositionArray[6] = '1000';
-		//xPositionArray[7] = '1200';
-		//xPositionArray[8] = '1400';
-		//xPositionArray[9] = '1600';
-		//xPositionArray[10] = '2000';
-
-
-		//var xPosition = Math.ceil(Math.random() * 10);
-		//bomb.style.left = xPositionArray[xPosition] + 'px';
-		//bombCount ++;
-	}
-
 
 function move() {
 	if (playing == true) {
@@ -186,8 +118,91 @@ function keydown(event) {
 	}
 }
 }
+// command for the bombs
+function bomb() {
+	var bomb = document.getElementById('bomb');
+    
+	//bomb movement down the page
+	if (playing == true) {
+		var positionTop = bomb.offsetTop;
+		bomb.style.top = positionTop + 10 + 'px';
+	}
+	//position finder and collision detection
+	var positionTop = bomb.offsetTop;	
+	var newTop = positionTop + 1;
+    var element = document.elementFromPoint(bomb.offsetLeft, newTop+32);
+        
+		
+	if (element.classList.contains('solid') == true) {
+			bomb.style.top = newTop + 'px';
+			collision = true;
+		}
+
+	if (collision == true){
+	//animation change
+	bomb.classList.add('explosion');
+    bomb.classList.remove('bomb');
+	//calls hit to effect player character
+	hit();
+
+	}
 
 
+		//var xPositionArray = [];
+		//xPositionArray[1] = '0';
+		//xPositionArray[2] = '200';
+		//xPositionArray[3] = '400';
+		//xPositionArray[4] = '600';
+		//xPositionArray[5] = '800';
+		//xPositionArray[6] = '1000';
+		//xPositionArray[7] = '1200';
+		//xPositionArray[8] = '1400';
+		//xPositionArray[9] = '1600';
+		//xPositionArray[10] = '2000';
+
+
+		//var xPosition = Math.ceil(Math.random() * 10);
+		//bomb.style.left = xPositionArray[xPosition] + 'px';
+		//bombCount ++;
+	}
+//Runs when the player is hit, called in the bomb code
+function hit() {
+	//hit animation
+	player.classList.add('hit');
+	player.classList.remove('stand');	
+
+	//life counter
+	lives--;
+
+	if(lives == 2) {
+	var life1 = document.getElementById('life1');
+	life1.style.display = "none";		
+	}
+
+	if(lives == 1) {
+	var life2 = document.getElementById('life2');	
+	life2.style.display = "none";	
+	}
+
+	if(lives == 0); {
+	var life3 = document.getElementById('life3');
+	life3.style.display = "none";
+	gameover();	
+	}
+	
+}
+
+
+//called from the hit code, runs when lives = 0
+function gameover(){
+	//dead animation
+	player.classList.remove('stand');
+	player.classList.add('dead');
+	//game over screen (temp)
+	alert("Game Over");
+}
+
+//adds events and timers when the page is loaded
 function myLoadFunction() {
 	
 	document.addEventListener('keydown', keydown);
@@ -197,5 +212,5 @@ function myLoadFunction() {
 	bombTimer = setInterval(bomb,50);
 }
 
-
+//calls load when the page opens
 document.addEventListener('DOMContentLoaded', myLoadFunction);
