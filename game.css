@@ -200,6 +200,30 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	25%, 75% { background-position: 0 -224px; }
 	37.5%, 62.5% { background-position: 0 -224px; }
 }
+
+.hitBlink {
+	animation-name:hitBlink;
+	animation-duration: 4s;
+    animation-iteration-count: 1;
+}
+
+@keyframes hitblink {
+	0% { 
+		visibility: visible;
+	}
+
+	25% {
+		visibility: hidden;
+	}
+
+	50% {
+		visibility: visible;
+	}
+
+	100% {
+		visibility: hidden;
+	}
+}
 .arrow.right {
 	transform: rotate(-180deg)
 }
@@ -346,23 +370,23 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	animation: deadarms 1s steps(1) forwards;
 }
 
-.character.stand.dead .head {
+.character.stand.dead.head {
 	animation: deadhead 1s steps(1) forwards;
 }
 
-.character.hit.left .body {
+.character.hit.left.body {
 	animation: hitleft 0.2s steps(1) forwards;
 }
 
-.character.hit.left .head {
+.character.hit.left.head {
 	background-position: 0px -432px ;
 }
 
-.character.hit.right .head {
+.character.hit.right.head {
 	background-position: 0px -496px ;
 }
 
-.character.hit.right .body {
+.character.hit.right.body {
 	background-position: -96px -160px;
 	margin-left: -3px;
 }
@@ -371,7 +395,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	background-position: 0px 0px ;
 }
 
-.character.hit.up .body {
+.character.hit.up.body {
 	background-position: -128px -160px;
 	margin-top: 16px;
 }

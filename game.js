@@ -4,7 +4,7 @@ var leftPressed = false;
 var rightPressed = false;
 var lastPressed = false;
 var playing = false;
-var lives = 0;
+var lives;
 var bombCount = 0;
 var collision = false;
 
@@ -48,17 +48,17 @@ function hit() {
 	player.classList.remove('stand');	
 	lives = lives--;
 
-	if(lives = 2) {
+	if(lives == 2) {
 	var life1 = document.getElementById('life1');
 	life1.style.display = "none";		
 	}
 
-	if(lives = 1) {
+	if(lives == 1) {
 	var life2 = document.getElementById('life2');	
 	life2.style.display = "none";	
 	}
 
-	if(lives = 0); {
+	if(lives == 0); {
 	var life3 = document.getElementById('life3');
 	life3.style.display = "none";
 	gameover();	
@@ -116,6 +116,7 @@ function bomb() {
 
 
 function move() {
+	if (playing == true) {
 	var player = document.getElementById('player');
 	var positionLeft = player.offsetLeft;
 	var positionTop = player.offsetTop;
@@ -167,9 +168,10 @@ function move() {
 	}
 
 }
-
+}
 
 function keydown(event) {
+	if (playing == true) {
 	if (event.keyCode == 37) {
 		leftPressed = true;
 	}
@@ -182,6 +184,7 @@ function keydown(event) {
 	if (event.keyCode == 40) {
 		downPressed = true;
 	}
+}
 }
 
 
