@@ -8,7 +8,7 @@ var playing = false;
 var lives;
 var bombCount = 0;
 var collision = false;
-
+var body;
 
 //Runs at when start buttton is clicked, hides the button and sets presets
 function startGame() {
@@ -18,6 +18,7 @@ function startGame() {
 		var start = document.getElementById('start');
 		start.style.display = 'none';
 		lives = 3;
+		bombTimer = setInterval(bomb,2000);
 	}
 
 }
@@ -118,9 +119,17 @@ function keydown(event) {
 	}
 }
 }
+function randomBomb() {
+	var newBomb = document.createElement("div");
+	newBomb.classList.add("bomb");
+	newBomb.style.top = window.innerHeight;
+	newBomb.style.left = Math.ceil(Math.random()* window.innerWidth) + "px";
+	body.appendChild(newBomb);
+	return newBomb;
+}
 // command for the bombs
 function bomb() {
-	var bomb = document.getElementById('bomb');
+	var bomb = randomBomb();
     
 	//bomb movement down the page
 	if (playing == true) {
@@ -209,7 +218,7 @@ function myLoadFunction() {
 	document.addEventListener('keyup', keyup);
 	start.addEventListener('click', startGame);
 	timeout = setInterval(move, 10);
-	bombTimer = setInterval(bomb,50);
+	document.getElementsByTagName("body")[0];
 }
 
 //calls load when the page opens
