@@ -176,17 +176,20 @@ function hit() {
 
 	if(lives == 2) {
 	var life1 = document.getElementById('life1');
-	life1.style.display = "none";		
+	life1.style.display = "none";
+	alert("2");		
 	}
 
 	if(lives == 1) {
 	var life2 = document.getElementById('life2');	
-	life2.style.display = "none";	
+	life2.style.display = "none";
+	alert("1");		
 	}
 
 	if(lives == 0); {
 	var life3 = document.getElementById('life3');
 	life3.style.display = "none";
+	alert("0");	
 	gameover();	
 	}
 	
