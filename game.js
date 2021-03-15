@@ -201,12 +201,18 @@ function gameover(){
 	//game over screen (temp)
 	stop();
 	alert("Game Over");
+	reset();
+	
 }
 
 //stop game function
 function stop() {
 	clearInterval(timeout);
 	clearInterval(bombTimer);
+}
+function reset() {
+	var reset = document.getElementById('reset');
+		reset.style.display = 'block';
 }
 
 //adds events and timers when the page is loaded
