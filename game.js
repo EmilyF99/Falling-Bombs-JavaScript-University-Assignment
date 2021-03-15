@@ -176,21 +176,18 @@ function hit() {
 
 	if(lives == 2) {
 	var life1 = document.getElementById('life1');
-	life1.style.display = "none";
-	alert("2");		
+	life1.style.display = "none";	
 	}
 
 	if(lives == 1) {
 	var life2 = document.getElementById('life2');	
-	life2.style.display = "none";
-	alert("1");		
+	life2.style.display = "none";	
 	}
 
 	if(lives == 0); {
 	var life3 = document.getElementById('life3');
 	life3.style.display = "none";
-	alert("0");	
-	gameover();	
+	gameover();
 	}
 	
 }
@@ -202,7 +199,14 @@ function gameover(){
 	player.classList.remove('stand');
 	player.classList.add('dead');
 	//game over screen (temp)
+	stop();
 	alert("Game Over");
+}
+
+//stop game function
+function stop() {
+	clearInterval(timeout);
+	clearInterval(bombTimer);
 }
 
 //adds events and timers when the page is loaded
