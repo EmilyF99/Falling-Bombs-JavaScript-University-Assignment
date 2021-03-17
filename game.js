@@ -198,9 +198,9 @@ function gameover(){
 	//dead animation
 	player.classList.remove('stand');
 	player.classList.add('dead');
-	//game over screen (temp)
+	//game over screen
 	stop();
-	alert("Game Over");
+	gameoverText();
 	resetGame();
 	
 }
@@ -210,9 +210,15 @@ function stop() {
 	clearInterval(timeout);
 	clearInterval(bombTimer);
 }
+
+function gameoverText() {
+	var gameoverText = document.getElementById('gameover');
+	gameoverText.style.display = 'block';
+}
+
 function resetGame() {
 	var reset = document.getElementById('reset');
-		reset.style.display = 'block';
+	reset.style.display = 'block';
 }
 
 function resetClicked() {
