@@ -192,6 +192,24 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	height: auto
 }
 
+#score {
+	color: white;
+	text-shadow: 2px 2px 2px #000;
+	position: absolute;
+	font-size: 1.4em;
+	height: 500px;
+	width: 200px;
+	background-color: #ccc;
+	left: 1em;
+	margin-top: 1em;
+	padding-left: 1em;
+	font-family: 'Anton';
+	cursor: pointer;
+	box-shadow: 4px 4px 4px #000;
+	display: block;
+	height: auto
+}
+
 .explosion {
 	width: 128px;
 	height: 160px;
