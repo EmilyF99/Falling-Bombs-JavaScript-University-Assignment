@@ -6,7 +6,7 @@ var rightPressed = false;
 var lastPressed = false;
 var playing = false;
 var lives;
-var bombCount = 0;
+var score;
 var collision = false;
 
 
@@ -18,9 +18,15 @@ function startGame() {
 		var start = document.getElementById('start');
 		start.style.display = 'none';
 		lives = 3;
+		score = 0;
+		score();
 	}
 
 }
+
+//function score() {
+	//var scoreUpdate = 
+//}
 
 //Player Movement Code
 function keyup(event) {
