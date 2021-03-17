@@ -129,7 +129,7 @@ function bomb() {
 	}
 	//position finder and collision detection
 	var positionTop = bomb.offsetTop;	
-	var newTop = positionTop + 1;
+	var newTop = positionTop + 0;
     var element = document.elementFromPoint(bomb.offsetLeft, newTop+32);
         
 		
@@ -201,7 +201,7 @@ function gameover(){
 	//game over screen (temp)
 	stop();
 	alert("Game Over");
-	reset();
+	resetGame();
 	
 }
 
@@ -210,9 +210,13 @@ function stop() {
 	clearInterval(timeout);
 	clearInterval(bombTimer);
 }
-function reset() {
+function resetGame() {
 	var reset = document.getElementById('reset');
 		reset.style.display = 'block';
+}
+
+function resetClicked() {
+	window.location.reload();
 }
 
 //adds events and timers when the page is loaded
@@ -221,6 +225,7 @@ function myLoadFunction() {
 	document.addEventListener('keydown', keydown);
 	document.addEventListener('keyup', keyup);
 	start.addEventListener('click', startGame);
+	reset.addEventListener('click', resetClicked);
 	timeout = setInterval(move, 10);
 	bombTimer = setInterval(bomb,50);
 }
