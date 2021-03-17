@@ -118,7 +118,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	background-position: -96px -401px;
 	transform: rotate(90deg)
 }
-.start:before {
+#start:before {
 	background-image: url(images/head0.png);
 	background-repeat: no-repeat;
 	background-position: 0px -64px;
@@ -131,7 +131,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	margin-left: 0.4em;
 }
 
-.start {
+#start {
 	color: white;
 	text-shadow: 2px 2px 2px #000;
 	position: absolute;
@@ -152,7 +152,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	box-shadow: 4px 4px 4px #000;
 }
 
-.reset {
+#reset {
 	color: white;
 	text-shadow: 2px 2px 2px #000;
 	position: absolute;
@@ -174,7 +174,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	display: none;
 }
 
-.gameover {
+#gameover {
 	color: white;
 	text-shadow: 2px 2px 2px #000;
 	position: absolute;

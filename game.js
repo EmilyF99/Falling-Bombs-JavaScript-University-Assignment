@@ -140,13 +140,19 @@ function bomb() {
 
 	if (collision == true){
 	//animation change
-	bomb.classList.add('explosion');
-    bomb.classList.remove('bomb');
+	explosion();
 	//calls hit to effect player character
 	hit();
-
 	}
 
+	function explosion() {
+		bomb.classList.add('explosion');
+    	bomb.classList.remove('bomb');
+	}
+
+}
+
+	//setTimeout(function(){ alert("After 5 seconds!"); }, 5000);
 
 		//var xPositionArray = [];
 		//xPositionArray[1] = '0';
@@ -164,7 +170,6 @@ function bomb() {
 		//var xPosition = Math.ceil(Math.random() * 10);
 		//bomb.style.left = xPositionArray[xPosition] + 'px';
 		//bombCount ++;
-	}
 //Runs when the player is hit, called in the bomb code
 function hit() {
 	//hit animation
@@ -210,6 +215,7 @@ function stop() {
 	clearInterval(timeout);
 	clearInterval(bombTimer);
 }
+
 
 function gameoverText() {
 	var gameoverText = document.getElementById('gameover');
