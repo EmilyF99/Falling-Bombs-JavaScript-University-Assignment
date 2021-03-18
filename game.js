@@ -126,16 +126,16 @@ function bomb() {
 	//array to set X Position at the top of the screen
 	var xPositionArray = [];
 		xPositionArray[0] = '0';
-		xPositionArray[1] = '200';
-		xPositionArray[2] = '400';
-		xPositionArray[3] = '600';
-		xPositionArray[4] = '800';
-		xPositionArray[5] = '1000';
-		xPositionArray[6] = '1200';
-		xPositionArray[7] = '1400';
-		xPositionArray[8] = '1600';
-		xPositionArray[9] = '2000';
-		xPositionArray[10] = '2000';
+		xPositionArray[1] = '100';
+		xPositionArray[2] = '200';
+		xPositionArray[3] = '300';
+		xPositionArray[4] = '400';
+		xPositionArray[5] = '500';
+		xPositionArray[6] = '600';
+		xPositionArray[7] = '800';
+		xPositionArray[8] = '1000';
+		xPositionArray[9] = '1200';
+		xPositionArray[10] = '1400';
 
 		
 		var xPosition = Math.ceil(Math.random() * 10);
