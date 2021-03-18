@@ -135,11 +135,24 @@ function bomb() {
 		xPositionArray[7] = '800';
 		xPositionArray[8] = '1000';
 		xPositionArray[9] = '1200';
-		xPositionArray[10] = '1400';
 
-		
 		var xPosition = Math.ceil(Math.random() * 10);
 		bomb.style.left = xPositionArray[xPosition] + 'px'; 
+
+	var angleArray = [];
+		angleArray[0] = '20';
+		angleArray[1] = '40';
+		angleArray[2] = '60';
+		angleArray[3] = '70';
+		angleArray[4] = '80'; 
+		angleArray[5] = '90';
+		angleArray[6] = '100';
+		angleArray[7] = '110';
+		angleArray[8] = '130';
+		angleArray[9] = '150';
+
+		var angle = Math.ceil(Math.random() * 10);
+		bomb.style.transform = 'rotate( '+ angleArray[angle] + 'deg)';
 
 		bombTimer = setInterval(function() {
 		
@@ -154,23 +167,23 @@ function bomb() {
     	var element = document.elementFromPoint(bomb.offsetLeft, newTop+32);
         
 		
-	if (element.classList.contains('solid') == true) {
+		if (element.classList.contains('solid') == true) {
 			bomb.style.top = newTop + 'px';
 			collision = true;
 			clearInterval(bombTimer);
 		}
 
-	if (collision == true){
-	//animation change
-	bomb.classList.add('explosion');
-    bomb.classList.remove('bomb');
-	setTimeout(function(){
-	bomb.classList.remove('explosion');
-	},800);
-	//calls hit to effect player character
-	hit();
-	}
-		}, 50);
+		if (collision == true){
+		//animation change
+		bomb.classList.add('explosion');
+    	bomb.classList.remove('bomb');
+		setTimeout(function(){
+		bomb.classList.remove('explosion');
+		},800);
+		//calls hit to effect player character
+		hit();
+		}
+			}, 50);
 }
 //Runs when the player is hit, called in the bomb code
 function hit() {
