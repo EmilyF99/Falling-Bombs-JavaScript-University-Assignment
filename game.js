@@ -170,6 +170,7 @@ function bomb() {
 			//bomb movement down the page
 			if (playing == true) {
 			var positionTop = bomb.offsetTop;
+			bomb.style.top = positionTop + 10 + 'px';
 			//bomb.style.top = positionTop + bombSpeed[speed] + 'px';
 			}
 			//position finder and collision detection
