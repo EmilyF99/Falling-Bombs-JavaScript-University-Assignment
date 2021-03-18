@@ -209,6 +209,13 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	display: block;
 	height: auto
 }
+#score p:nth-child(1) {
+	float: left;
+}
+#score p:nth-child(2) {
+	float: right;
+	margin-right: 2em;
+}
 
 .explosion {
 	width: 128px;
