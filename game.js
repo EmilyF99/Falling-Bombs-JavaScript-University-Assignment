@@ -139,6 +139,7 @@ function bomb() {
 		var xPosition = Math.ceil(Math.random() * 10);
 		bomb.style.left = xPositionArray[xPosition] + 'px'; 
 
+	//array to set bomb sprite angle
 	var angleArray = [];
 		angleArray[0] = '20';
 		angleArray[1] = '40';
@@ -154,12 +155,22 @@ function bomb() {
 		var angle = Math.ceil(Math.random() * 10);
 		bomb.style.transform = 'rotate( '+ angleArray[angle] + 'deg)';
 
+	//array to set bomb speed
+	var bombSpeed = [];
+		bombSpeed[0] = '1';
+		bombSpeed[1] = '5';
+		bombSpeed[2] = '10';
+		bombSpeed[3] = '20';
+		bombSpeed[4] = '30';
+
+		var speed = Math.ceil(Math.random() * 5);
+
 		bombTimer = setInterval(function() {
 		
 			//bomb movement down the page
 			if (playing == true) {
 			var positionTop = bomb.offsetTop;
-			bomb.style.top = positionTop + 10 + 'px';
+			//bomb.style.top = positionTop + bombSpeed[speed] + 'px';
 			}
 			//position finder and collision detection
 		var positionTop = bomb.offsetTop;	
@@ -253,7 +264,6 @@ function myLoadFunction() {
 	start.addEventListener('click', startGame);
 	reset.addEventListener('click', resetClicked);
 	timeout = setInterval(move, 1);
-	//bombTimer = setInterval(bomb,50);
 	bomb();
 }
 
