@@ -12,6 +12,8 @@ var body;
 
 //Runs at when start buttton is clicked, hides the button and sets presets
 function startGame() {
+
+	everytime = setInterval(bomb, 1500);
 	playing = true;
 	
 	if (playing == true) {
@@ -20,7 +22,6 @@ function startGame() {
 		lives = 3;
 		score = 0;
 	}
-
 }
 
 //Player Movement Code
@@ -164,11 +165,11 @@ function moreBomb() {
 
 	//array to set bomb speed
 	var bombSpeed = [];
-		bombSpeed[0] = '1';
-		bombSpeed[1] = '5';
-		bombSpeed[2] = '10';
-		bombSpeed[3] = '20';
-		bombSpeed[4] = '25';
+		bombSpeed[0] = '20';
+		bombSpeed[1] = '40';
+		bombSpeed[2] = '50';
+		bombSpeed[3] = '60';
+		bombSpeed[4] = '80';
 
 		var speed = Math.ceil(Math.random() * 5);
 
@@ -246,8 +247,8 @@ function gameover(){
 function stop() {
 	clearInterval(timeout);
 	clearInterval(bombTimer);
+	clearInterval(everytime);
 }
-
 
 function gameoverText() {
 	var gameoverText = document.getElementById('gameover');
@@ -272,8 +273,6 @@ function myLoadFunction() {
 	reset.addEventListener('click', resetClicked);
 	timeout = setInterval(move, 1);
 	body = document.getElementsByTagName('body')[0];
-	bomb();
-	
 }
 
 //calls load when the page opens
