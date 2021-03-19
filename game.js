@@ -8,7 +8,7 @@ var playing = false;
 var lives;
 var playerScore;
 var collision = false;
-
+var body;
 
 //Runs at when start buttton is clicked, hides the button and sets presets
 function startGame() {
@@ -119,10 +119,17 @@ function keydown(event) {
 	}
 }
 }
+
+function moreBomb() {
+	var newBomb = document.createElement('div');
+	body.appendChild(newBomb);
+	newBomb.classList.add('bomb');
+	return newBomb;
+}
 // command for the bombs
-function bomb() {
-	var bomb = document.getElementsByClassName('bomb')[0];
-	
+	function bomb() {
+	var bomb = moreBomb();
+
 	//array to set X Position at the top of the screen
 	var xPositionArray = [];
 		xPositionArray[0] = '0';
@@ -161,7 +168,7 @@ function bomb() {
 		bombSpeed[1] = '5';
 		bombSpeed[2] = '10';
 		bombSpeed[3] = '20';
-		bombSpeed[4] = '30';
+		bombSpeed[4] = '25';
 
 		var speed = Math.ceil(Math.random() * 5);
 
@@ -171,7 +178,6 @@ function bomb() {
 			if (playing == true) {
 			var positionTop = bomb.offsetTop;
 			bomb.style.top = positionTop + 10 + 'px';
-			//bomb.style.top = positionTop + bombSpeed[speed] + 'px';
 			}
 			//position finder and collision detection
 		var positionTop = bomb.offsetTop;	
@@ -195,7 +201,7 @@ function bomb() {
 		//calls hit to effect player character
 		hit();
 		}
-			}, 50);
+			}, bombSpeed[speed] );
 }
 //Runs when the player is hit, called in the bomb code
 function hit() {
@@ -265,7 +271,9 @@ function myLoadFunction() {
 	start.addEventListener('click', startGame);
 	reset.addEventListener('click', resetClicked);
 	timeout = setInterval(move, 1);
+	body = document.getElementsByTagName('body')[0];
 	bomb();
+	
 }
 
 //calls load when the page opens
