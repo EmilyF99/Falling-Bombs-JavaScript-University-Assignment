@@ -9,6 +9,7 @@ var lives;
 var playerScore;
 var collision = false;
 var body;
+var everytime;
 
 //Runs at when start buttton is clicked, hides the button and sets presets
 function startGame() {
@@ -149,31 +150,34 @@ function moreBomb() {
 
 	//array to set bomb sprite angle
 	var angleArray = [];
-		angleArray[0] = '20';
-		angleArray[1] = '40';
-		angleArray[2] = '60';
-		angleArray[3] = '70';
+		angleArray[0] = '10';
+		angleArray[1] = '20';
+		angleArray[2] = '40';
+		angleArray[3] = '60';
 		angleArray[4] = '80'; 
 		angleArray[5] = '90';
 		angleArray[6] = '100';
 		angleArray[7] = '110';
 		angleArray[8] = '130';
 		angleArray[9] = '150';
+		angleArray[10] = '170';
+		
 
 		var angle = Math.ceil(Math.random() * 10);
 		bomb.style.transform = 'rotate( '+ angleArray[angle] + 'deg)';
 
 	//array to set bomb speed
 	var bombSpeed = [];
-		bombSpeed[0] = '20';
-		bombSpeed[1] = '40';
-		bombSpeed[2] = '50';
-		bombSpeed[3] = '60';
-		bombSpeed[4] = '80';
+		bombSpeed[0] = '40';
+		bombSpeed[1] = '60';
+		bombSpeed[2] = '80';
+		bombSpeed[3] = '100';
+		bombSpeed[4] = '120';
+		bombSpeed[5] = '140';
 
 		var speed = Math.ceil(Math.random() * 5);
 
-		bombTimer = setInterval(function() {
+		var bombTimer = setInterval(function() {
 		
 			//bomb movement down the page
 			if (playing == true) {
@@ -198,11 +202,13 @@ function moreBomb() {
     	bomb.classList.remove('bomb');
 		setTimeout(function(){
 		bomb.classList.remove('explosion');
-		},800);
+		},800); //animation delay
+
 		//calls hit to effect player character
 		hit();
 		}
 			}, bombSpeed[speed] );
+			
 }
 //Runs when the player is hit, called in the bomb code
 function hit() {
@@ -246,7 +252,6 @@ function gameover(){
 //stop game function
 function stop() {
 	clearInterval(timeout);
-	clearInterval(bombTimer);
 	clearInterval(everytime);
 }
 
