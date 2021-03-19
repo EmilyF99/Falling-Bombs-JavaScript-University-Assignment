@@ -1,7 +1,13 @@
 /* Import website font */
 @import url('https://stockfont.org/?8cda42869f3be483afe7bb6ec5a60b380d392a4ba18fcca04cba6299745fbe8c');
 
-body {background-image: url(images/bg.png); margin: 0; padding: 0; font-family: 'Oxygen-Regular', sans-serif; overflow: hidden;}
+body {
+	background-image: url(images/bg.png);
+	margin: 0;
+	padding: 0;
+	font-family: 'Oxygen-Regular', sans-serif;
+	overflow: hidden;
+}
 
 .sky {
 	position: absolute;
@@ -13,24 +19,81 @@ body {background-image: url(images/bg.png); margin: 0; padding: 0; font-family: 
 	background-position: bottom left;
 }
 
-aside {width: 200px; position: fixed; height: 100vh; left: 100%; margin-left: -240px; background-color: #ddd; border-left: 5px solid #bbb; padding: 20px;}
-#closeside {float: right; font-weight: bold; cursor: pointer;}
+aside {
+	width: 200px;
+	position: fixed;
+	height: 100vh;
+	left: 100%;
+	margin-left: -240px;
+	background-color: #ddd;
+	border-left: 5px solid #bbb;
+	padding: 20px;
+}
 
-.character {position: absolute; top: 88vh; left: 200px; display: block;}
-.character .body {width: 32px; height: 32px; background-image: url(images/body0.png); background-position: 64px 0px; margin-top: 14px; }
-.character .head {width: 32px; height: 32px; background-image: url(images/head0.png); margin-bottom: 0;position: absolute; background-repeat: no-repeat; background-position: 0px -64px;}
+#closeside {
+	float: right;
+	font-weight: bold;
+	cursor: pointer;
+}
 
-aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom: 20px; overflow: auto;}
-.heads li, .bodies li {width: 32px; height: 32px; background-position: 0 -64px; float: left; cursor: pointer; border: 2px solid #ddd; margin-right: 4px;}
-.heads li:hover, .bodies li:hover {border: 2px solid red;}
+.character {
+	position: absolute;
+	top: 88vh;
+	left: 200px;
+	display: block;
+}
 
-.bodies li {background-position: 64px 0px;}
+.character .body {
+	width: 32px;
+	height: 32px;
+	background-image: url(images/body0.png);
+	background-position: 64px 0px;
+	margin-top: 14px;
+}
+
+.character .head {
+	width: 32px;
+	height: 32px;
+	background-image: url(images/head0.png);
+	margin-bottom: 0;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-position: 0px -64px;
+}
+
+aside ul {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	margin-bottom: 20px;
+	overflow: auto;
+}
+
+.heads li,
+.bodies li {
+	width: 32px;
+	height: 32px;
+	background-position: 0 -64px;
+	float: left;
+	cursor: pointer;
+	border: 2px solid #ddd;
+	margin-right: 4px;
+}
+
+.heads li:hover,
+.bodies li:hover {
+	border: 2px solid red;
+}
+
+.bodies li {
+	background-position: 64px 0px;
+}
 
 .weapon.bow {
 	background-image: url(images/sprites.png);
-	background-position:  -55px -214px;
+	background-position: -55px -214px;
 	width: 16px;
-	height:32px;
+	height: 32px;
 }
 
 .weapon {
@@ -42,28 +105,32 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	display: block;
 }
 
-.character.fire.stand.right .bow, .character.fire.walk.right .bow {
+.character.fire.stand.right .bow,
+.character.fire.walk.right .bow {
 	top: 12px;
 	left: 6px;
 	z-index: -1;
 	animation: enemyfireright 0.2s ease-in forwards;
 }
 
-.character.fire.stand.down .bow, .character.fire.walk.down .bow {
+.character.fire.stand.down .bow,
+.character.fire.walk.down .bow {
 	top: 12px;
 	left: 0px;
 	z-index: 1;
 	animation: enemyfiredown 0.2s ease-in forwards;
 }
 
-.character.fire.stand.left .bow, .character.fire.walk.left .bow {
+.character.fire.stand.left .bow,
+.character.fire.walk.left .bow {
 	top: 8px;
 	left: -16px;
 	z-index: -1;
 	animation: enemyfireleft 0.2s ease-in forwards;
 }
 
-.character.fire.stand.up .bow, .character.fire.walk.up .bow {
+.character.fire.stand.up .bow,
+.character.fire.walk.up .bow {
 	top: 12px;
 	left: 6px;
 	z-index: -2;
@@ -118,6 +185,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	background-position: -96px -401px;
 	transform: rotate(90deg)
 }
+
 #start:before {
 	background-image: url(images/head0.png);
 	background-repeat: no-repeat;
@@ -209,9 +277,11 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	display: block;
 	height: auto
 }
+
 #score p:nth-child(1) {
 	float: left;
 }
+
 #score p:nth-child(2) {
 	float: right;
 	margin-right: 2em;
@@ -247,31 +317,63 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 	background-image: url(images/bomb1.png);
 	background-position: 0px -32px;
 	animation: bombV 0.5s steps(1) infinite;
-	
+
 }
 
 @keyframes bombV {
-	0%, 100% { background-position: 32px -32px; }
-	12.5%, 87.5% { background-position: 64px -32px; }
-	25%, 75% { background-position: 96px -32px; }
-	37.5%, 62.5% { background-position: 0 -32px; }
+
+	0%,
+	100% {
+		background-position: 32px -32px;
+	}
+
+	12.5%,
+	87.5% {
+		background-position: 64px -32px;
+	}
+
+	25%,
+	75% {
+		background-position: 96px -32px;
+	}
+
+	37.5%,
+	62.5% {
+		background-position: 0 -32px;
+	}
 }
 
 @keyframes bombH {
-	0%, 100% { background-position: 0 -288px; }
-	12.5%, 87.5% { background-position: 0 -256px; }
-	25%, 75% { background-position: 0 -224px; }
-	37.5%, 62.5% { background-position: 0 -224px; }
+
+	0%,
+	100% {
+		background-position: 0 -288px;
+	}
+
+	12.5%,
+	87.5% {
+		background-position: 0 -256px;
+	}
+
+	25%,
+	75% {
+		background-position: 0 -224px;
+	}
+
+	37.5%,
+	62.5% {
+		background-position: 0 -224px;
+	}
 }
 
 .hitBlink {
-	animation-name:hitBlink;
+	animation-name: hitBlink;
 	animation-duration: 4s;
-    animation-iteration-count: 1;
+	animation-iteration-count: 1;
 }
 
 @keyframes hitblink {
-	0% { 
+	0% {
 		visibility: visible;
 	}
 
@@ -287,6 +389,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 		visibility: hidden;
 	}
 }
+
 .arrow.right {
 	transform: rotate(-180deg)
 }
@@ -342,7 +445,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 }
 
 .character.walk.up .body {
-    animation: walkup 1s steps(3) infinite;
+	animation: walkup 1s steps(3) infinite;
 }
 
 .character.walk.down .head {
@@ -351,7 +454,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 }
 
 .character.walk.down .body {
-    animation: walkdown 1s steps(3) infinite;
+	animation: walkdown 1s steps(3) infinite;
 }
 
 .character.walk.left .head {
@@ -362,12 +465,19 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 }
 
 .character.walk.left .body {
-    animation: walkleft 1s steps(3) infinite;
+	animation: walkleft 1s steps(3) infinite;
 }
 
 @keyframes walkleft {
-   0%, 100% { background-position:  -32px  -32px; }
-     50% { background-position: -32px -128px; }
+
+	0%,
+	100% {
+		background-position: -32px -32px;
+	}
+
+	50% {
+		background-position: -32px -128px;
+	}
 }
 
 .character.walk.right .head {
@@ -378,49 +488,97 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 }
 
 .character.walk.right .body {
-    animation: walkright 1s steps(3) infinite;
+	animation: walkright 1s steps(3) infinite;
 }
 
 @keyframes walkright {
-   0%, 100% { background-position:  -96px  -32px; }
-     50% { background-position: -96px -128px; }
+
+	0%,
+	100% {
+		background-position: -96px -32px;
+	}
+
+	50% {
+		background-position: -96px -128px;
+	}
 }
 
 @keyframes walkup {
-   0%, 100% { background-position:  0px  -32px; }
-     50% { background-position: 0px -128px; }
+
+	0%,
+	100% {
+		background-position: 0px -32px;
+	}
+
+	50% {
+		background-position: 0px -128px;
+	}
 }
 
 
 @keyframes walkdown {
-   0%, 100% { background-position:  -64px  -32px; }
-     50% { background-position: -64px -128px; }
+
+	0%,
+	100% {
+		background-position: -64px -32px;
+	}
+
+	50% {
+		background-position: -64px -128px;
+	}
 }
 
 @keyframes headbob {
-   0%, 100% { margin-top: 0px; }
-     50% { margin-top: 1px; }
+
+	0%,
+	100% {
+		margin-top: 0px;
+	}
+
+	50% {
+		margin-top: 1px;
+	}
 }
 
 @keyframes headbob2 {
-   0%, 100% { margin-left: -2px; }
-     50% { margin-left: 0px; }
+
+	0%,
+	100% {
+		margin-left: -2px;
+	}
+
+	50% {
+		margin-left: 0px;
+	}
 }
 
 @keyframes headbob3 {
-   0%, 100% { margin-left: 2px; }
-     50% { margin-left: 0px; }
+
+	0%,
+	100% {
+		margin-left: 2px;
+	}
+
+	50% {
+		margin-left: 0px;
+	}
 }
 
 @keyframes fadeout {
-	0% {opacity: 1;}
-	100% {opacity: 0;}
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
 }
 
 .character.dead .body {
 	animation: dead 1s steps(1) forwards;
 
 }
+
 .character.dead .body:after {
 	background-image: inherit;
 	content: "";
@@ -442,11 +600,11 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 }
 
 .character.hit.left.head {
-	background-position: 0px -432px ;
+	background-position: 0px -432px;
 }
 
 .character.hit.right.head {
-	background-position: 0px -496px ;
+	background-position: 0px -496px;
 }
 
 .character.hit.right.body {
@@ -455,7 +613,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 }
 
 .character.hit.up .head {
-	background-position: 0px 0px ;
+	background-position: 0px 0px;
 }
 
 .character.hit.up.body {
@@ -464,7 +622,7 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 }
 
 .character.hit.down .head {
-	background-position: 0px -464px ;
+	background-position: 0px -464px;
 }
 
 .character.hit.down .body {
@@ -473,44 +631,115 @@ aside ul {list-style-type: none; margin-left: 0; padding-left: 0; margin-bottom:
 }
 
 @keyframes hitleft {
-	0%,100% {background-position: -32px -160px;}
+
+	0%,
+	100% {
+		background-position: -32px -160px;
+	}
 }
 
 @keyframes dead {
-	 0% { background-position:  0px  -512px; }
-     25% { background-position: -32px -512px; }
-     50% { background-position:  -64px  -512px;   }
-     75% {background-position:  -96px  -512px;  }
-     100% {background-position:  -32px  -678px;  width: 64px;}
+	0% {
+		background-position: 0px -512px;
+	}
+
+	25% {
+		background-position: -32px -512px;
+	}
+
+	50% {
+		background-position: -64px -512px;
+	}
+
+	75% {
+		background-position: -96px -512px;
+	}
+
+	100% {
+		background-position: -32px -678px;
+		width: 64px;
+	}
 }
 
 @keyframes deadhead {
-	 0% { background-position:  0px  0px; }
-     25% { background-position: 0px -432px; margin-top: -2px;}
-     50% { background-position:  0px  -464px;  margin-top: -2px }
-     75% {background-position:  0px  -496px;  }
-     100% {background-position:  0px  -528px; margin-top: 4px; margin-left: 16px; }
+	0% {
+		background-position: 0px 0px;
+	}
+
+	25% {
+		background-position: 0px -432px;
+		margin-top: -2px;
+	}
+
+	50% {
+		background-position: 0px -464px;
+		margin-top: -2px
+	}
+
+	75% {
+		background-position: 0px -496px;
+	}
+
+	100% {
+		background-position: 0px -528px;
+		margin-top: 4px;
+		margin-left: 16px;
+	}
 }
 
 
 @keyframes deadarms {
-	 0% { background-position:  0px  -480px; }
-     25% { background-position: -32px -480px; }
-     50% { background-position:  -64px  -480px; }
-     75% { background-position:  -96px  -480px; }
-     100% {display: none;  opacity: 0;}
+	0% {
+		background-position: 0px -480px;
+	}
+
+	25% {
+		background-position: -32px -480px;
+	}
+
+	50% {
+		background-position: -64px -480px;
+	}
+
+	75% {
+		background-position: -96px -480px;
+	}
+
+	100% {
+		display: none;
+		opacity: 0;
+	}
 }
 
-.hud {position: fixed; width: 100%; z-index: 1000;}
-ul {list-style-type: none;float: right; margin-right: 20px;}
-.health li {width: 40px; height: 48px; background-image: url(images/state.png); float:right; margin-left: 8px;}
+.hud {
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+}
+
+ul {
+	list-style-type: none;
+	float: right;
+	margin-right: 20px;
+}
+
+.health li {
+	width: 40px;
+	height: 48px;
+	background-image: url(images/state.png);
+	float: right;
+	margin-left: 8px;
+}
 
 
 .level {
 	border-collapse: collapse;
 }
 
-.editor {width: 2048px;}
+.editor {
+	width: 2048px;
+}
+
 .scroll {
 	width: 100vh;
 	overflow-x: scroll;
