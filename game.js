@@ -231,10 +231,10 @@ function bomb() {
 		}
 		if (collision == true) {
 			//animation change
-			bomb.classList.add('explosion');
+			bomb.classList.add('explosion2');
 			bomb.classList.remove('bomb');
 			setTimeout(function () {
-				bomb.classList.remove('explosion');
+				bomb.classList.remove('explosion2');
 				body.removeChild(bomb);
 			}, 800); //animation delay
 			//calls hit to effect player character

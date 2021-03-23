@@ -328,6 +328,39 @@ aside ul {
 
 }
 
+.explosion2 {
+	width: 128px;
+	height: 160px;
+	position: absolute;
+	margin-left: -50px;
+	margin-top: 0px;
+}
+
+.explosion2:before {
+	z-index: 999;
+	width: 128px;
+	height: 32px;
+	display: block;
+	content: " ";
+	background-image: url(images/bomb2.png);
+	background-position: 0 -192px;
+	animation: bombH 0.5s steps(1) infinite;
+}
+
+.explosion2:after {
+	z-index: 999;
+	width: 32px;
+	height: 160px;
+	display: block;
+	content: " ";
+	margin-top: -100px;
+	margin-left: 48px;
+	background-image: url(images/bomb2.png);
+	background-position: 0px -32px;
+	animation: bombV 0.5s steps(1) infinite;
+
+}
+
 @keyframes bombV {
 
 	0%,
