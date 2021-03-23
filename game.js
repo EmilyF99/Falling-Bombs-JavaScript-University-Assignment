@@ -301,7 +301,7 @@ function collisionLinePosition() {
 	var grassLine = document.getElementsByClassName('grassCollisionLine')[0];
 	grassLine.style.top = collisionGrassArray[collisionGrass] + 'vh';
 
-	}, 500);
+	}, 75);
 }
 
 //adds events and timers when the page is loaded
