@@ -283,17 +283,25 @@ function resetClicked() {
 }
 
 function collisionLinePosition() {
+	setInterval(function(){
+
 	var collisionGrassArray = [];
 	collisionGrassArray[0] = '80';
-	collisionGrassArray[1] = '85';
-	collisionGrassArray[2] = '90';
-	collisionGrassArray[3] = '95';
-	collisionGrassArray[4] = '100';
+	collisionGrassArray[1] = '82';
+	collisionGrassArray[2] = '84';
+	collisionGrassArray[3] = '86';
+	collisionGrassArray[4] = '88';
+	collisionGrassArray[5] = '90';
+	collisionGrassArray[6] = '92';
+	collisionGrassArray[7] = '94';
+	collisionGrassArray[8] = '96';
+	collisionGrassArray[9] = '98';
 
-	var collisionGrass = Math.ceil(Math.random() * 5);
+	var collisionGrass = Math.ceil(Math.random() * 10);
 	var grassLine = document.getElementsByClassName('grassCollisionLine')[0];
 	grassLine.style.top = collisionGrassArray[collisionGrass] + 'vh';
 
+	}, 500);
 }
 
 //adds events and timers when the page is loaded
@@ -304,6 +312,7 @@ function myLoadFunction() {
 	start.addEventListener('click', startGame);
 	reset.addEventListener('click', resetClicked);
 	timeout = setInterval(move, 1);
+
 	body = document.getElementsByTagName('body')[0];
 }
 
