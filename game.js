@@ -180,6 +180,7 @@ function bomb() {
 
 	var bombTimer = setInterval(function () {
 		var collision = false;
+		var grassCollision = false;
 		//bomb movement down the page
 		if (playing == true) {
 			var positionTop = bomb.offsetTop;
@@ -199,10 +200,18 @@ function bomb() {
 
 		if (element.classList.contains('grassCollisionLine') == true) {
 			bomb.style.top = newTop + 'px';
-			collision = true;
+			grassCollision = true;
 			clearInterval(bombTimer);
 		}
-
+		if (grassCollision == true) {
+			//animation change
+			bomb.classList.add('explosion');
+			bomb.classList.remove('bomb');
+			setTimeout(function () {
+				bomb.classList.remove('explosion');
+				body.removeChild(bomb);
+			}, 800); //animation delay
+		}
 		if (collision == true) {
 			//animation change
 			bomb.classList.add('explosion');
