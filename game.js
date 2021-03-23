@@ -137,16 +137,33 @@ function bomb() {
 	var xPositionArray = [];
 	xPositionArray[0] = '0';
 	xPositionArray[1] = '100';
-	xPositionArray[2] = '200';
-	xPositionArray[3] = '300';
-	xPositionArray[4] = '400';
-	xPositionArray[5] = '500';
-	xPositionArray[6] = '600';
-	xPositionArray[7] = '800';
-	xPositionArray[8] = '1000';
-	xPositionArray[9] = '1200';
+	xPositionArray[2] = '150';
+	xPositionArray[3] = '200';
+	xPositionArray[4] = '250';
+	xPositionArray[5] = '300';
+	xPositionArray[6] = '400';
+	xPositionArray[7] = '450';
+	xPositionArray[8] = '500';
+	xPositionArray[9] = '550';
+	xPositionArray[10] = '600';
+	xPositionArray[11] = '650';
+	xPositionArray[12] = '700';
+	xPositionArray[13] = '720';
+	xPositionArray[14] = '800';
+	xPositionArray[15] = '850';
+	xPositionArray[16] = '900';
+	xPositionArray[17] = '950';
+	xPositionArray[18] = '1000';
+	xPositionArray[19] = '1050';
+	xPositionArray[20] = '1100';
+	xPositionArray[21] = '1150';
+	xPositionArray[22] = '1200';
+	xPositionArray[23] = '1250';
+	xPositionArray[24] = '1300';
+	xPositionArray[25] = '1350';
+	
 
-	var xPosition = Math.ceil(Math.random() * 10);
+	var xPosition = Math.ceil(Math.random() * 26);
 	bomb.style.left = xPositionArray[xPosition] + 'px';
 
 	//array to set bomb sprite angle
