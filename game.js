@@ -22,6 +22,7 @@ function startGame() {
 		start.style.display = 'none';
 		lives = 3;
 		score = 0;
+		collisionLinePosition();
 	}
 }
 
@@ -162,7 +163,6 @@ function bomb() {
 	angleArray[9] = '150';
 	angleArray[10] = '170';
 
-
 	var angle = Math.ceil(Math.random() * 10);
 	bomb.style.transform = 'rotate( ' + angleArray[angle] + 'deg)';*/
 
@@ -280,6 +280,20 @@ function resetGame() {
 
 function resetClicked() {
 	window.location.reload();
+}
+
+function collisionLinePosition() {
+	var collisionGrassArray = [];
+	collisionGrassArray[0] = '80';
+	collisionGrassArray[1] = '85';
+	collisionGrassArray[2] = '90';
+	collisionGrassArray[3] = '95';
+	collisionGrassArray[4] = '100';
+
+	var collisionGrass = Math.ceil(Math.random() * 5);
+	var grassLine = document.getElementByClassName('grassCollisionLine');
+	grassLine.style.top = collisionGrassArray[collisionGrass] + 'vh';
+
 }
 
 //adds events and timers when the page is loaded
