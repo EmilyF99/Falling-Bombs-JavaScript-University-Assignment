@@ -149,7 +149,7 @@ function bomb() {
 	bomb.style.left = xPositionArray[xPosition] + 'px';
 
 	//array to set bomb sprite angle
-	var angleArray = [];
+	/*var angleArray = [];
 	angleArray[0] = '10';
 	angleArray[1] = '20';
 	angleArray[2] = '40';
@@ -164,7 +164,7 @@ function bomb() {
 
 
 	var angle = Math.ceil(Math.random() * 10);
-	bomb.style.transform = 'rotate( ' + angleArray[angle] + 'deg)';
+	bomb.style.transform = 'rotate( ' + angleArray[angle] + 'deg)';*/
 
 
 	//array to set bomb speed
@@ -192,6 +192,12 @@ function bomb() {
 
 
 		if (element.classList.contains('solid') == true) {
+			bomb.style.top = newTop + 'px';
+			collision = true;
+			clearInterval(bombTimer);
+		}
+
+		if (element.classList.contains('grassCollisionLine') == true) {
 			bomb.style.top = newTop + 'px';
 			collision = true;
 			clearInterval(bombTimer);
