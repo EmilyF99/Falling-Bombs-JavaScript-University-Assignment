@@ -291,7 +291,7 @@ function collisionLinePosition() {
 	collisionGrassArray[4] = '100';
 
 	var collisionGrass = Math.ceil(Math.random() * 5);
-	var grassLine = document.getElementByClassName('grassCollisionLine');
+	var grassLine = document.getElementsByClassName('grassCollisionLine')[0];
 	grassLine.style.top = collisionGrassArray[collisionGrass] + 'vh';
 
 }
