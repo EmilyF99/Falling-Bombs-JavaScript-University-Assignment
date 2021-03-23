@@ -14,7 +14,7 @@ var timeout;
 //Runs at when start buttton is clicked, hides the button and sets presets
 function startGame() {
 
-	everytime = setInterval(bomb, 1500); //array for frequency (Math.ceil(Math.random() * 5);
+	everytime = setInterval(bomb, 500); 
 	playing = true;
 
 	if (playing == true) {
@@ -237,7 +237,6 @@ function bomb() {
 				bomb.classList.remove('explosion');
 				body.removeChild(bomb);
 			}, 800); //animation delay
-
 			//calls hit to effect player character
 			hit();
 		}
