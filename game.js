@@ -21,7 +21,7 @@ function startGame() {
 		var start = document.getElementById('start');
 		start.style.display = 'none';
 		lives = 3;
-		score = 0;
+		playerScore = 0;
 		collisionLinePosition();
 	}
 }
@@ -224,10 +224,20 @@ function bomb() {
 			//animation change
 			bomb.classList.add('explosion');
 			bomb.classList.remove('bomb');
+		
+			//add text to score 
 			setTimeout(function () {
 				bomb.classList.remove('explosion');
 				body.removeChild(bomb);
 			}, 800); //animation delay
+
+			//score counter 
+			playerScore++;
+			console.log(playerScore);
+			var score = document.getElementById('scoreValue');
+			score.innerHTML = playerScore;
+			
+			console.log(playerScore);
 		}
 		if (collision == true) {
 			//animation change

@@ -293,7 +293,9 @@ aside ul {
 #score p:nth-child(2) {
 	float: right;
 	margin-right: 2em;
+	font-size: 1.2em;
 }
+
 
 .explosion {
 	width: 128px;
