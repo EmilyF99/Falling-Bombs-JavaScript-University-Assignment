@@ -285,6 +285,7 @@ function gameover() {
 	stop();
 	gameoverText();
 	submitScore();
+	scoreboard();
 	resetGame();
 
 }
@@ -304,6 +305,13 @@ function resetGame() {
 	setInterval(function(){
 	var reset = document.getElementById('reset');
 	reset.style.display = 'block';
+	}, 1500);
+}
+
+function scoreboard() {
+	setInterval(function(){
+	var scoreboardButton = document.getElementById('scoreBoardButton');
+	scoreboardButton.style.display = 'block';
 	}, 1500);
 }
 
