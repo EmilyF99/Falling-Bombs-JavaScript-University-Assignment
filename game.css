@@ -38,12 +38,6 @@ aside {
 	padding: 20px;
 }
 
-#closeside {
-	float: right;
-	font-weight: bold;
-	cursor: pointer;
-}
-
 .character {
 	position: absolute;
 	top: 88vh;
@@ -86,11 +80,6 @@ aside ul {
 	cursor: pointer;
 	border: 2px solid #ddd;
 	margin-right: 4px;
-}
-
-.heads li:hover,
-.bodies li:hover {
-	border: 2px solid red;
 }
 
 .bodies li {
@@ -255,7 +244,6 @@ aside ul {
 	text-shadow: 2px 2px 2px #000;
 	position: absolute;
 	font-size: 2em;
-	height: 1000px;
 	width: 1000px;
 	background-color: #ccc;
 	text-align: center;
@@ -265,7 +253,7 @@ aside ul {
 	cursor: pointer;
 	box-shadow: 4px 4px 4px #000;
 	display: none;
-	height: auto
+	height: auto;
 }
 
 #score {
@@ -273,7 +261,6 @@ aside ul {
 	text-shadow: 2px 2px 2px #000;
 	position: absolute;
 	font-size: 1.4em;
-	height: 500px;
 	width: 200px;
 	background-color: #ccc;
 	left: 1em;
@@ -283,9 +270,8 @@ aside ul {
 	cursor: pointer;
 	box-shadow: 4px 4px 4px #000;
 	display: block;
-	height: auto
+	height: auto;
 }
-
 #score p:nth-child(1) {
 	float: left;
 }
@@ -296,6 +282,38 @@ aside ul {
 	font-size: 1.2em;
 }
 
+#submitScore {
+	color: white;
+	text-shadow: 2px 2px 2px #000;
+	display: grid;
+	position: absolute;
+	font-size: 2em;
+	width: 800px;
+	padding-left: 4em;
+	padding-right: 4em;
+	padding-bottom: 1em;
+	background-color: #ccc;
+	text-align: center;
+	left: 17%;
+	margin-top: 5em;
+	font-family: 'Anton';
+	cursor: pointer;
+	box-shadow: 4px 4px 4px #000;
+	opacity: 0;
+	height: auto;
+}
+
+#submit {
+	color: white;
+	text-shadow: 2px 2px 2px #000;
+	background-color: #ccc;
+	box-shadow: 4px 4px 4px #000;
+	font-family: 'Anton';	
+	font-size: 0.8em;
+	margin-top: 0.5em;
+	margin-left: 4em;
+	margin-right: 4em;
+}
 
 .explosion {
 	width: 128px;

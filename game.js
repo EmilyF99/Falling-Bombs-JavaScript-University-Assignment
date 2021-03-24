@@ -220,12 +220,12 @@ function bomb() {
 			grassCollision = true;
 			clearInterval(bombTimer);
 		}
+
 		if (grassCollision == true) {
 			//animation change
 			bomb.classList.add('explosion');
 			bomb.classList.remove('bomb');
 		
-			//add text to score 
 			setTimeout(function () {
 				bomb.classList.remove('explosion');
 				body.removeChild(bomb);
@@ -237,7 +237,7 @@ function bomb() {
 			var score = document.getElementById('scoreValue');
 			score.innerHTML = playerScore;
 			
-			console.log(playerScore);
+			//console.log(playerScore); <-- Used for testing
 		}
 		if (collision == true) {
 			//animation change
@@ -284,6 +284,7 @@ function gameover() {
 	//game over screen
 	stop();
 	gameoverText();
+	submitScore();
 	resetGame();
 
 }
@@ -300,12 +301,24 @@ function gameoverText() {
 }
 
 function resetGame() {
+	setInterval(function(){
 	var reset = document.getElementById('reset');
 	reset.style.display = 'block';
+	}, 1500);
 }
 
 function resetClicked() {
 	window.location.reload();
+}
+
+function submitScore() {
+	setInterval(function(){
+		var gameoverText = document.getElementById('gameover');
+		gameoverText.style.display = 'none';
+
+		var scoreForm = document.getElementById('submitScore');
+	scoreForm.style.opacity = '1';
+	}, 1500);
 }
 
 function collisionLinePosition() {
