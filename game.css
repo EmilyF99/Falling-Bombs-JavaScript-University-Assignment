@@ -217,6 +217,10 @@ aside ul {
 	box-shadow: 4px 4px 4px #000;
 }
 
+#start:hover{
+	border: grey 4px solid;
+}
+
 #reset {
 	color: white;
 	text-shadow: 2px 2px 2px #000;
@@ -239,6 +243,10 @@ aside ul {
 	display: none;
 }
 
+#reset:hover{
+	border: grey 4px solid;
+}
+
 #scoreBoardButton {
 	color: white;
 	text-shadow: 2px 2px 2px #000;
@@ -259,6 +267,9 @@ aside ul {
 	border-radius: 20px;
 	box-shadow: 4px 4px 4px #000;
 	display: none;
+}
+#scoreBoardButton:hover{
+	border: grey 4px solid;
 }
 
 #gameover {
@@ -335,6 +346,10 @@ aside ul {
 	margin-top: 0.5em;
 	margin-left: 4em;
 	margin-right: 4em;
+}
+
+#submit:hover{
+	border: grey 4px solid;
 }
 
 .explosion {
