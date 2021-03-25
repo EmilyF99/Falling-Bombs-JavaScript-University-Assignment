@@ -403,6 +403,12 @@ function collisionLinePosition() {
 	}, 75);
 }
 
+function store(){
+	var scoreName = document.getElementById("playerName");
+	localStorage.setItem('player name', scoreName);
+	localStorage.setItem('score', playerScore);
+   }
+
 //adds events and timers when the page is loaded
 function myLoadFunction() {
 
