@@ -14,7 +14,7 @@ var timeout;
 //Runs when start buttton is clicked, hides the button and sets presets
 function startGame() {
 
-	everytime = setInterval(bomb, 500); //adjusts bomb frequency drops 
+	everytime = setInterval(bomb, 800); //adjusts bomb frequency drops 
 	playing = true; //used to set the timers to true so game does not start before player is ready
 
 	if (playing == true) {
@@ -217,7 +217,7 @@ function bomb() {
 
 		//collision detection for explosion radius on grass, if the player walks over an explosion they will get hit
 		//collision onto the player
-		if (element.classList.contains('explosion') == true) {
+		if (element.classList.contains('explosion' && 'solid') == true) {
 			collision = true;
 		}
 
@@ -253,7 +253,7 @@ function bomb() {
 			setTimeout(function () {
 				bomb.classList.remove('explosion');
 				body.removeChild(bomb);
-			}, 800); //amount of time the explosion remains on screen
+			}, 1000); //amount of time the explosion remains on screen
 
 			//score counter 
 			//when a bomb explodes the player score goes up by 1
