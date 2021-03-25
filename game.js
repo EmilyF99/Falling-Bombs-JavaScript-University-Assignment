@@ -14,7 +14,7 @@ var timeout;
 //Runs at when start buttton is clicked, hides the button and sets presets
 function startGame() {
 
-	everytime = setInterval(bomb, 500); 
+	everytime = setInterval(bomb, 500);
 	playing = true;
 
 	if (playing == true) {
@@ -161,7 +161,7 @@ function bomb() {
 	xPositionArray[23] = '1250';
 	xPositionArray[24] = '1300';
 	xPositionArray[25] = '1350';
-	
+
 
 	var xPosition = Math.ceil(Math.random() * 26);
 	bomb.style.left = xPositionArray[xPosition] + 'px';
@@ -225,7 +225,7 @@ function bomb() {
 			//animation change
 			bomb.classList.add('explosion');
 			bomb.classList.remove('bomb');
-		
+
 			setTimeout(function () {
 				bomb.classList.remove('explosion');
 				body.removeChild(bomb);
@@ -236,7 +236,7 @@ function bomb() {
 			console.log(playerScore);
 			var score = document.getElementById('scoreValue');
 			score.innerHTML = playerScore;
-			
+
 			//console.log(playerScore); <-- Used for testing
 		}
 		if (collision == true) {
@@ -302,16 +302,16 @@ function gameoverText() {
 }
 
 function resetGame() {
-	setInterval(function(){
-	var reset = document.getElementById('reset');
-	reset.style.display = 'block';
+	setInterval(function () {
+		var reset = document.getElementById('reset');
+		reset.style.display = 'block';
 	}, 1500);
 }
 
 function scoreboard() {
-	setInterval(function(){
-	var scoreboardButton = document.getElementById('scoreBoardButton');
-	scoreboardButton.style.display = 'block';
+	setInterval(function () {
+		var scoreboardButton = document.getElementById('scoreBoardButton');
+		scoreboardButton.style.display = 'block';
 	}, 1500);
 }
 
@@ -320,33 +320,33 @@ function resetClicked() {
 }
 
 function submitScore() {
-	setInterval(function(){
+	setInterval(function () {
 		var gameoverText = document.getElementById('gameover');
 		gameoverText.style.display = 'none';
 
 		var scoreForm = document.getElementById('submitScore');
-	scoreForm.style.opacity = '1';
+		scoreForm.style.opacity = '1';
 	}, 1500);
 }
 
 function collisionLinePosition() {
-	setInterval(function(){
+	setInterval(function () {
 
-	var collisionGrassArray = [];
-	collisionGrassArray[0] = '80';
-	collisionGrassArray[1] = '82';
-	collisionGrassArray[2] = '84';
-	collisionGrassArray[3] = '86';
-	collisionGrassArray[4] = '88';
-	collisionGrassArray[5] = '90';
-	collisionGrassArray[6] = '92';
-	collisionGrassArray[7] = '94';
-	collisionGrassArray[8] = '96';
-	collisionGrassArray[9] = '98';
+		var collisionGrassArray = [];
+		collisionGrassArray[0] = '80';
+		collisionGrassArray[1] = '82';
+		collisionGrassArray[2] = '84';
+		collisionGrassArray[3] = '86';
+		collisionGrassArray[4] = '88';
+		collisionGrassArray[5] = '90';
+		collisionGrassArray[6] = '92';
+		collisionGrassArray[7] = '94';
+		collisionGrassArray[8] = '96';
+		collisionGrassArray[9] = '98';
 
-	var collisionGrass = Math.ceil(Math.random() * 10);
-	var grassLine = document.getElementsByClassName('grassCollisionLine')[0];
-	grassLine.style.top = collisionGrassArray[collisionGrass] + 'vh';
+		var collisionGrass = Math.ceil(Math.random() * 10);
+		var grassLine = document.getElementsByClassName('grassCollisionLine')[0];
+		grassLine.style.top = collisionGrassArray[collisionGrass] + 'vh';
 
 	}, 75);
 }
