@@ -189,13 +189,14 @@ function bomb() {
 	//array to set bomb speed
 	var bombSpeed = [];
 	bombSpeed[0] = '40';
-	bombSpeed[1] = '60';
-	bombSpeed[2] = '80';
-	bombSpeed[3] = '100';
-	bombSpeed[4] = '120';
-	bombSpeed[5] = '140';
+	bombSpeed[1] = '80';
+	bombSpeed[2] = '100';
+	bombSpeed[3] = '150';
+	bombSpeed[4] = '200';
+	bombSpeed[5] = '250';
+	bombSpeed[6] = '300';
 
-	var speed = Math.ceil(Math.random() * 5);
+	var speed = Math.ceil(Math.random() * 6);
 
 	//Collision Detection Code 
 
