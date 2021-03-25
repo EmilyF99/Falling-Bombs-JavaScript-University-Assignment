@@ -11,11 +11,11 @@ var body;
 var everytime;
 var timeout;
 
-//Runs at when start buttton is clicked, hides the button and sets presets
+//Runs when start buttton is clicked, hides the button and sets presets
 function startGame() {
 
-	everytime = setInterval(bomb, 500);
-	playing = true;
+	everytime = setInterval(bomb, 500); //adjusts bomb frequency drops 
+	playing = true; //used to set the timers to true so game does not start before player is ready
 
 	if (playing == true) {
 		var start = document.getElementById('start');
@@ -26,7 +26,7 @@ function startGame() {
 	}
 }
 
-//Player Movement Code
+//Player Movement Code (key releases)-- Thomas Butler (2021)
 function keyup(event) {
 	var player = document.getElementById('player');
 
@@ -50,7 +50,7 @@ function keyup(event) {
 	}
 	player.className = 'character stand ' + lastPressed;
 }
-
+//Player Movement Code and Sky Collision-- Thomas Butler (2021)
 function move() {
 	if (playing == true) {
 		var player = document.getElementById('player');
@@ -105,7 +105,7 @@ function move() {
 
 	}
 }
-
+//Player Movement Code (key presses)-- Thomas Butler (2021)
 function keydown(event) {
 	if (playing == true) {
 		if (event.keyCode == 37) {
@@ -123,6 +123,7 @@ function keydown(event) {
 	}
 }
 
+//moreBomb creates a new HTML element which is then turned into a bomb
 function moreBomb() {
 	var newBomb = document.createElement('div');
 	body.appendChild(newBomb);
@@ -166,7 +167,8 @@ function bomb() {
 	var xPosition = Math.ceil(Math.random() * 26);
 	bomb.style.left = xPositionArray[xPosition] + 'px';
 
-	//array to set bomb sprite angle
+	//array to set bomb sprite angle (commented out due to not being able to get angle movement)
+
 	/*var angleArray = [];
 	angleArray[0] = '10';
 	angleArray[1] = '20';
@@ -195,40 +197,54 @@ function bomb() {
 
 	var speed = Math.ceil(Math.random() * 5);
 
+	//Collision Detection Code 
+
 	var bombTimer = setInterval(function () {
+
+		//Sets to false to reset collision at the beginning of the objects creation/ game start
 		var collision = false;
 		var grassCollision = false;
+
 		//bomb movement down the page
 		if (playing == true) {
 			var positionTop = bomb.offsetTop;
 			bomb.style.top = positionTop + 10 + 'px';
 		}
-		//position finder and collision detection
+		// Bomb position finder
 		var positionTop = bomb.offsetTop;
 		var newTop = positionTop + 0;
 		var element = document.elementFromPoint(bomb.offsetLeft, newTop + 32);
 
-
+		//collision detection for explosion radius on grass, if the player walks over an explosion they will get hit
+		//collision onto the player
 		if (element.classList.contains('explosion') == true) {
 			collision = true;
 		}
+
+		//solid marks collision with player
+		//collision onto the player
 		if (element.classList.contains('solid') == true) {
 			bomb.style.top = newTop + 'px';
 			collision = true;
 			clearInterval(bombTimer);
 		}
 
+		//Bombs collide with the collision line then they explode (used to set random explosion line)
+		//colliion onto bomb
 		if (element.classList.contains('grassCollisionLine') == true) {
 			bomb.style.top = newTop + 'px';
 			grassCollision = true;
 			clearInterval(bombTimer);
 		}
 
+		//Bombs collide with bottom line then explode  (fail safe for elements being off screen and reducing latency issues)
+		//collsion onto bomb
 		if (element.classList.contains('bottomCollisionLine') == true) {
 			grassCollision = true;
 			clearInterval(bombTimer);
 		}
 
+		//when hitting the grass the bombs explode. bomb is removed, explosion replaces and then the bomb is removed entirely
 		if (grassCollision == true) {
 			//animation change
 			bomb.classList.add('explosion');
@@ -237,16 +253,18 @@ function bomb() {
 			setTimeout(function () {
 				bomb.classList.remove('explosion');
 				body.removeChild(bomb);
-			}, 800); //animation delay
+			}, 800); //amount of time the explosion remains on screen
 
 			//score counter 
+			//when a bomb explodes the player score goes up by 1
 			playerScore++;
-			console.log(playerScore);
 			var score = document.getElementById('scoreValue');
 			score.innerHTML = playerScore;
 
 			//console.log(playerScore); <-- Used for testing
 		}
+
+		//when a bomb hits the player explosion 2 is added and bomb is removed 
 		if (collision == true) {
 			//animation change
 			bomb.classList.add('explosion2');
@@ -254,11 +272,12 @@ function bomb() {
 			setTimeout(function () {
 				bomb.classList.remove('explosion2');
 				body.removeChild(bomb);
-			}, 800); //animation delay
+			}, 800); //animation timer for the explosion that hits the player
+
 			//calls hit to effect player character
 			hit();
 		}
-	}, bombSpeed[speed]);
+	}, bombSpeed[speed]); //Call to Array that randomises the speed the bombs fall at
 
 }
 //Runs when the player is hit, called in the bomb code
@@ -280,6 +299,7 @@ function hit() {
 		life3.style.display = "none";
 		gameover();
 	}
+	//1 life removed when hit is called
 	lives--;
 }
 
@@ -289,8 +309,11 @@ function gameover() {
 	//dead animation
 	player.classList.remove('stand');
 	player.classList.add('dead');
-	//game over screen
+
+	//cancels timers to stop the game 
 	stop();
+
+	//text, buttons and score form for end game screen
 	gameoverText();
 	submitScore();
 	scoreboard();
@@ -304,11 +327,13 @@ function stop() {
 	clearInterval(everytime);
 }
 
+//shows gameover text after game ends
 function gameoverText() {
 	var gameoverText = document.getElementById('gameover');
 	gameoverText.style.display = 'block';
 }
 
+//shows reset button after a delay (syncs with score board button/form)
 function resetGame() {
 	setInterval(function () {
 		var reset = document.getElementById('reset');
@@ -316,6 +341,8 @@ function resetGame() {
 	}, 1500);
 }
 
+//shows view scoreboard button after a time delay (syncs with score board button/form) 
+//Can merge with above function to neaten up 
 function scoreboard() {
 	setInterval(function () {
 		var scoreboardButton = document.getElementById('scoreBoardButton');
@@ -323,10 +350,12 @@ function scoreboard() {
 	}, 1500);
 }
 
+//reloads window when the button is clicked
 function resetClicked() {
 	window.location.reload();
 }
 
+//after the game over message has been displayed it is removed and the submit score form is displayed instead
 function submitScore() {
 	setInterval(function () {
 		var gameoverText = document.getElementById('gameover');
@@ -337,6 +366,7 @@ function submitScore() {
 	}, 1500);
 }
 
+//array for the rando bomb collision on the grass
 function collisionLinePosition() {
 	setInterval(function () {
 
