@@ -355,6 +355,11 @@ function resetGame() {
 	}, 1500);
 }
 
+//reloads window when the button is clicked
+function resetClicked() {
+	window.location.reload();
+}
+
 //shows view scoreboard button after a time delay (syncs with score board button/form) 
 //Can merge with above function to neaten up 
 function scoreboard() {
@@ -364,10 +369,10 @@ function scoreboard() {
 	}, 1500);
 }
 
-//reloads window when the button is clicked
-function resetClicked() {
-	window.location.reload();
-}
+/*function scoresClicked() {
+	var reset = document.getElementById('reset');
+		reset.style.display = 'none';
+}*/
 
 //after the game over message has been displayed it is removed and the submit score form is displayed instead
 function submitScore() {
@@ -416,6 +421,7 @@ function myLoadFunction() {
 	document.addEventListener('keyup', keyup);
 	start.addEventListener('click', startGame);
 	reset.addEventListener('click', resetClicked);
+	//scoreboardButton.addEventListener('click', scoresClicked);
 	timeout = setInterval(move, 1);
 
 	body = document.getElementsByTagName('body')[0];
