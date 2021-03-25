@@ -8,7 +8,7 @@
 </head>
 
 <body>
-
+	<!-- Health Bar-->
 	<div class="hud">
 		<ul class="health">
 			<li id=life1></li>
@@ -17,13 +17,17 @@
 		</ul>
 	</div>
 
+	<!--Start Button-->
 	<div id="start">
 		Start
 	</div>
 
+	<!--Background / Level-->
 	<div class="sky"></div>
 	<div class="grassCollisionLine"></div>
+	<div class="bottomCollisionLine"></div>
 
+	<!-- Player -->
 	<div id="player" class="character stand down">
 		<div class="head solid">
 		</div>
@@ -35,24 +39,29 @@
 		</div>
 	</div>
 
+	<!-- Reset Button -->
 	<div id="reset">
 		<p>Play Again? Click to reset</p>
 	</div>
 
+	<!-- Button to take to highscores -->
 	<div id="scoreBoardButton">
 		<p>Click to see HighScores</p>
 	</div>
 
+	<!-- GameOver Message -->
 	<div id="gameover">
 		<p>Game Over</p>
 	</div>
 
+	<!-- Score Box -->
 	<div id="score">
 		<p>Score: </p>
 		<p id="scoreValue"></p>
 	</div>
 
-	<form id="submitScore"> 
+	<!--Form for storing names-->
+	<form id="submitScore">
 		<label for="scoreName">Input Your Name to Save your Score</label>
 		<input type="text" placeholder="Your Name here" name="scoreName">
 		<input type="submit" id="submit">

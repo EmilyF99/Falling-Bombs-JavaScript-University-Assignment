@@ -221,6 +221,11 @@ function bomb() {
 			clearInterval(bombTimer);
 		}
 
+		if (element.classList.contains('bottomCollisionLine') == true) {
+			grassCollision = true;
+			clearInterval(bombTimer);
+		}
+
 		if (grassCollision == true) {
 			//animation change
 			bomb.classList.add('explosion');
