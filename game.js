@@ -209,6 +209,9 @@ function bomb() {
 		var element = document.elementFromPoint(bomb.offsetLeft, newTop + 32);
 
 
+		if (element.classList.contains('explosion') == true) {
+			collision = true;
+		}
 		if (element.classList.contains('solid') == true) {
 			bomb.style.top = newTop + 'px';
 			collision = true;
