@@ -283,7 +283,6 @@ aside ul {
 	left: 17%;
 	margin-top: 5em;
 	font-family: 'Anton';
-	cursor: pointer;
 	box-shadow: 4px 4px 4px #000;
 	display: none;
 	height: auto;
@@ -300,7 +299,6 @@ aside ul {
 	margin-top: 1em;
 	padding-left: 1em;
 	font-family: 'Anton';
-	cursor: pointer;
 	box-shadow: 4px 4px 4px #000;
 	display: block;
 	height: auto;
@@ -346,6 +344,7 @@ aside ul {
 	margin-top: 0.5em;
 	margin-left: 4em;
 	margin-right: 4em;
+	cursor: pointer;
 }
 
 #submit:hover{
