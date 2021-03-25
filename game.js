@@ -14,7 +14,19 @@ var timeout;
 //Runs when start buttton is clicked, hides the button and sets presets
 function startGame() {
 
-	everytime = setInterval(bomb, 800); //adjusts bomb frequency drops 
+	//array to set bomb frequency
+		var bombFrequencyArray = [];
+		bombFrequencyArray[0] = '600';
+		bombFrequencyArray[1] = '800';
+		bombFrequencyArray[2] = '1000';
+		bombFrequencyArray[3] = '1200';
+		bombFrequencyArray[4] = '1400';
+		bombFrequencyArray[5] = '1600';
+		bombFrequencyArray[6] = '2000';
+	
+		var frequency = Math.ceil(Math.random() * 6);
+
+	everytime = setInterval(bomb, bombFrequencyArray[frequency]); //adjusts bomb frequency drops 
 	playing = true; //used to set the timers to true so game does not start before player is ready
 
 	if (playing == true) {
@@ -197,6 +209,7 @@ function bomb() {
 	bombSpeed[6] = '300';
 
 	var speed = Math.ceil(Math.random() * 6);
+
 
 	//Collision Detection Code 
 
