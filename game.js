@@ -117,6 +117,7 @@ function move() {
 
 	}
 }
+
 //Player Movement Code (key presses)-- Thomas Butler (2021)
 function keydown(event) {
 	if (playing == true) {
@@ -229,11 +230,7 @@ function bomb() {
 		var newTop = positionTop + 0;
 		var element = document.elementFromPoint(bomb.offsetLeft, newTop + 32);
 
-		//collision detection for explosion radius on grass, if the player walks over an explosion they will get hit
-		//collision onto the player
-		if (element.classList.contains('explosion' && 'solid') == true) {
-			collision = true;
-		}
+		
 
 		//solid marks collision with player
 		//collision onto the player
@@ -263,6 +260,8 @@ function bomb() {
 			//animation change
 			bomb.classList.add('explosion');
 			bomb.classList.remove('bomb');
+
+			bomb.classList.add('explosionCollision');
 
 			setTimeout(function () {
 				bomb.classList.remove('explosion');
@@ -364,8 +363,8 @@ function resetClicked() {
 //Can merge with above function to neaten up 
 function scoreboard() {
 	setInterval(function () {
-		var scoreboardButton = document.getElementById('scoreBoardButton');
-		scoreboardButton.style.display = 'block';
+		var scoreButton = document.getElementById('scoreBoardButton');
+		scoreButton.style.display = 'block';
 	}, 1500);
 }
 
@@ -407,12 +406,24 @@ function collisionLinePosition() {
 
 	}, 75);
 }
+function store() {
+	var PlayerScore = {
+		Score: playerScore ,
+		name: playerName.value
+		};
 
-function store(){
-	var scoreName = document.getElementById("playerName");
-	localStorage.setItem('player name', scoreName);
-	localStorage.setItem('score', playerScore);
-   }
+var userString = JSON.stringify(PlayerScore);
+
+localStorage.setItem('PlayerScore', userString);
+
+var userStringFromLocalStorage = localStorage.getItem('PlayerScore');
+
+var userFromLocalStorage = JSON.parse(userStringFromLocalStorage);
+
+console.log(userStringFromLocalStorage);
+
+}
+
 
 //adds events and timers when the page is loaded
 function myLoadFunction() {
@@ -421,7 +432,7 @@ function myLoadFunction() {
 	document.addEventListener('keyup', keyup);
 	start.addEventListener('click', startGame);
 	reset.addEventListener('click', resetClicked);
-	//scoreboardButton.addEventListener('click', scoresClicked);
+	//scoreButton.addEventListener('click', scoresClicked);
 	timeout = setInterval(move, 1);
 
 	body = document.getElementsByTagName('body')[0];

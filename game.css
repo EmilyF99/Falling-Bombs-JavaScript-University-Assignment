@@ -242,7 +242,12 @@ aside ul {
 	background-image: url(images/bomb1.png);
 	background-position: 0px -32px;
 	animation: bombV 0.5s steps(1) infinite;
-
+}
+.explosionCollision {
+	height: 30px;
+ 	width: 130px;
+ 	border-radius: 10px;
+ 	background-color: blue;
 }
 
 .explosion2 {
