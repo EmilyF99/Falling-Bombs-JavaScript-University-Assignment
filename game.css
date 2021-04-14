@@ -758,6 +758,26 @@ ul {
 	border: grey 4px solid;
 }
 
+/*#scoreBoard {
+	color: white;
+	text-shadow: 2px 2px 2px #000;
+	position: absolute;
+	font-size: 1.4em;
+	margin-left: auto;
+	margin-right: auto;
+	width: 20vw;
+	background-color: #ccc;
+	z-index: 1000;
+	text-align: center;
+	left: 50%;
+	margin-left: -10vw;
+	top: 65%;
+	margin-top: -1em;
+	font-family: 'Anton';
+	box-shadow: 4px 4px 4px #000;
+	display: none;
+}*/
+
 #gameover {
 	color: white;
 	text-shadow: 2px 2px 2px #000;

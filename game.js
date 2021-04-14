@@ -35,6 +35,7 @@ function startGame() {
 		lives = 3;
 		playerScore = 0;
 		collisionLinePosition();
+		//explosion radius call
 	}
 }
 
@@ -220,6 +221,7 @@ function bomb() {
 		var collision = false;
 		var grassCollision = false;
 
+
 		//bomb movement down the page
 		if (playing == true) {
 			var positionTop = bomb.offsetTop;
@@ -229,8 +231,6 @@ function bomb() {
 		var positionTop = bomb.offsetTop;
 		var newTop = positionTop + 0;
 		var element = document.elementFromPoint(bomb.offsetLeft, newTop + 32);
-
-		
 
 		//solid marks collision with player
 		//collision onto the player
@@ -293,6 +293,8 @@ function bomb() {
 	}, bombSpeed[speed]); //Call to Array that randomises the speed the bombs fall at
 
 }
+
+//explosion collision here
 //Runs when the player is hit, called in the bomb code
 function hit() {
 	//hit animation
@@ -329,7 +331,7 @@ function gameover() {
 	//text, buttons and score form for end game screen
 	gameoverText();
 	submitScore();
-	scoreboard();
+	scoreboardButton();
 	resetGame();
 
 }
@@ -361,17 +363,16 @@ function resetClicked() {
 
 //shows view scoreboard button after a time delay (syncs with score board button/form) 
 //Can merge with above function to neaten up 
-function scoreboard() {
+function scoreboardButton() {
 	setInterval(function () {
-		var scoreButton = document.getElementById('scoreBoardButton');
-		scoreButton.style.display = 'block';
+		var highScoreButton = document.getElementById('scoreBoardButton');
+		highScoreButton.style.display = 'block';
 	}, 1500);
 }
 
-/*function scoresClicked() {
-	var reset = document.getElementById('reset');
-		reset.style.display = 'none';
-}*/
+function scoresClicked() {
+	window.location.reload();
+}
 
 //after the game over message has been displayed it is removed and the submit score form is displayed instead
 function submitScore() {
@@ -407,10 +408,14 @@ function collisionLinePosition() {
 	}, 75);
 }
 function store() {
+
+	var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 	var PlayerScore = {
 		Score: playerScore ,
 		name: playerName.value
 		};
+		highScores.push(PlayerScore);
+		console.log(highScores);
 
 var userString = JSON.stringify(PlayerScore);
 
@@ -432,7 +437,7 @@ function myLoadFunction() {
 	document.addEventListener('keyup', keyup);
 	start.addEventListener('click', startGame);
 	reset.addEventListener('click', resetClicked);
-	//scoreButton.addEventListener('click', scoresClicked);
+	//highScoreButton.addEventListener('click',  scoresClicked);
 	timeout = setInterval(move, 1);
 
 	body = document.getElementsByTagName('body')[0];
