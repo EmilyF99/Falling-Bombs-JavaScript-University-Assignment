@@ -35,7 +35,6 @@ function startGame() {
 		lives = 3;
 		playerScore = 0;
 		collisionLinePosition();
-		//explosion radius call
 	}
 }
 
@@ -294,7 +293,6 @@ function bomb() {
 
 }
 
-//explosion collision here
 //Runs when the player is hit, called in the bomb code
 function hit() {
 	//hit animation
@@ -428,7 +426,6 @@ var userFromLocalStorage = JSON.parse(userStringFromLocalStorage);
 console.log(userStringFromLocalStorage);
 
 }
-
 
 //adds events and timers when the page is loaded
 function myLoadFunction() {
