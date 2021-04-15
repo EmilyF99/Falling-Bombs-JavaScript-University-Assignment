@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Falling Bombs - Emily F</title>
+	<link rel="stylesheet" href="highscoresButton.css" />
+	<script src="highscoresButton.js"></script>
+</head>
+
+<body>
+	
+    <!-- Reset Button -->
+	<div id="reset">
+		<p>Play Again? Click to reset</p>
+	</div>
+
+	<!-- Button to take to highscores -->
+	<div id="scoreBoardButton">
+		<p>HighScores?</p>
+	</div>
+
+	<!-- GameOver Message -->
+	<div id="gameover">
+		<p>Game Over</p>
+	</div>
+
+	<!-- Score Box -->
+	<div id="score">
+		<p>Score: </p>
+		<p id="scoreValue"></p>
+	</div>
+
+	<!--Form for storing names-->
+	<form id="submitScore">
+		<label for="scoreName">Input Your Name to Save your Score</label>
+		<input type="text" placeholder="Your Name here" name="scoreName" id="playerName">
+		<input type="submit" id="submit" onclick="store()">
+	</form>
+	</div>

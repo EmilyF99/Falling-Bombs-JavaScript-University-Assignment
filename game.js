@@ -363,13 +363,13 @@ function resetClicked() {
 //Can merge with above function to neaten up 
 function scoreboardButton() {
 	setInterval(function () {
-		var highScoreButton = document.getElementById('scoreBoardButton');
-		highScoreButton.style.display = 'block';
+		var scoreBoardButton = document.getElementById('scoreBoardButton');
+		scoreBoardButton.style.display = 'block';
 	}, 1500);
 }
 
-function scoresClicked() {
-	window.location.reload();
+function scoreClicked() {
+	scoreBoardButton.style.display = 'none';
 }
 
 //after the game over message has been displayed it is removed and the submit score form is displayed instead
@@ -434,7 +434,7 @@ function myLoadFunction() {
 	document.addEventListener('keyup', keyup);
 	start.addEventListener('click', startGame);
 	reset.addEventListener('click', resetClicked);
-	//highScoreButton.addEventListener('click',  scoresClicked);
+	scoreBoardButton.addEventListener('click',scoreClicked);
 	timeout = setInterval(move, 1);
 
 	body = document.getElementsByTagName('body')[0];
