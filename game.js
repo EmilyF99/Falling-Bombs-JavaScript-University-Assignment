@@ -372,10 +372,19 @@ function scoreboardButton() {
 function scoreClicked() {
 	var scoreboard = document.getElementById('scoreBoard');
 	scoreboard.style.display = 'block';
-	var goBack = document.getElementById('goBackButton');
-	goBack.style.display = 'block';
-	
+
+	var goBackButton = document.getElementById('goBackButton');
+	goBackButton.style.display = 'block';
 }
+
+function goBackClicked() {
+	var scoreboard = document.getElementById('scoreBoard');
+	scoreboard.style.display = 'none';
+
+	var goBackButton = document.getElementById('goBackButton');
+	goBackButton.style.display = 'none';
+}	
+
 
 //after the game over message has been displayed it is removed and the submit score form is displayed instead
 function submitScore() {
@@ -440,6 +449,7 @@ function myLoadFunction() {
 	start.addEventListener('click', startGame);
 	reset.addEventListener('click', resetClicked);
 	scoreBoardButton.addEventListener('click',scoreClicked);
+	goBackButton.addEventListener('click',goBackClicked);
 	timeout = setInterval(move, 1);
 
 	body = document.getElementsByTagName('body')[0];
