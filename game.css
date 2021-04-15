@@ -752,7 +752,27 @@ ul {
 	border: grey 4px solid;
 }
 
-/*#scoreBoard {
+#scoreBoard {
+	color: white;
+	text-shadow: 2px 2px 2px #000;
+	position: absolute;
+	font-size: 1.4em;
+	margin-left: auto;
+	margin-right: auto;
+	width: 69vw;
+	height: 25vh;
+	background-color: #ccc;
+	z-index: 1000;
+	text-align: center;
+	left: 17%;
+	top: 50%;
+	margin-top: -1em;
+	font-family: 'Anton';
+	box-shadow: 4px 4px 4px #000;
+	display: none;
+}
+
+#goBackButton {
 	color: white;
 	text-shadow: 2px 2px 2px #000;
 	position: absolute;
@@ -765,12 +785,18 @@ ul {
 	text-align: center;
 	left: 50%;
 	margin-left: -10vw;
-	top: 65%;
+	top: 85%;
 	margin-top: -1em;
 	font-family: 'Anton';
+	cursor: pointer;
+	border-radius: 20px;
 	box-shadow: 4px 4px 4px #000;
 	display: none;
-}*/
+}
+
+#goBackButton:hover {
+	border: grey 4px solid;
+}
 
 #gameover {
 	color: white;

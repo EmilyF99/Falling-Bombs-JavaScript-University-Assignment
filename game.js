@@ -32,7 +32,8 @@ function startGame() {
 	if (playing == true) {
 		var start = document.getElementById('start');
 		start.style.display = 'none';
-		lives = 3;
+		//lives = 3; 
+		lives = 1 ; //<--used for testing end screen
 		playerScore = 0;
 		collisionLinePosition();
 	}
@@ -348,7 +349,7 @@ function gameoverText() {
 
 //shows reset button after a delay (syncs with score board button/form)
 function resetGame() {
-	setInterval(function () {
+	setInterval(function() {
 		var reset = document.getElementById('reset');
 		reset.style.display = 'block';
 	}, 1500);
@@ -362,14 +363,18 @@ function resetClicked() {
 //shows view scoreboard button after a time delay (syncs with score board button/form) 
 //Can merge with above function to neaten up 
 function scoreboardButton() {
-	setInterval(function () {
+	setInterval(function() {
 		var scoreBoardButton = document.getElementById('scoreBoardButton');
 		scoreBoardButton.style.display = 'block';
 	}, 1500);
 }
 
 function scoreClicked() {
-	scoreBoardButton.style.display = 'none';
+	var scoreboard = document.getElementById('scoreBoard');
+	scoreboard.style.display = 'block';
+	var goBack = document.getElementById('goBackButton');
+	goBack.style.display = 'block';
+	
 }
 
 //after the game over message has been displayed it is removed and the submit score form is displayed instead
