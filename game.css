@@ -524,23 +524,23 @@ aside ul {
 	animation: deadarms 1s steps(1) forwards;
 }
 
-.character.stand.dead.head {
+.character.stand.dead .head {
 	animation: deadhead 1s steps(1) forwards;
 }
 
-.character.hit.left.body {
+.character.hit.left .body {
 	animation: hitleft 0.2s steps(1) forwards;
 }
 
-.character.hit.left.head {
+.character.hit.left .head {
 	background-position: 0px -432px;
 }
 
-.character.hit.right.head {
+.character.hit.right .head {
 	background-position: 0px -496px;
 }
 
-.character.hit.right.body {
+.character.hit.right .body {
 	background-position: -96px -160px;
 	margin-left: -3px;
 }
@@ -549,7 +549,7 @@ aside ul {
 	background-position: 0px 0px;
 }
 
-.character.hit.up.body {
+.character.hit.up .body {
 	background-position: -128px -160px;
 	margin-top: 16px;
 }

@@ -32,8 +32,8 @@ function startGame() {
 	if (playing == true) {
 		var start = document.getElementById('start');
 		start.style.display = 'none';
-		//lives = 3; 
-		lives = 1 ; //<--used for testing end screen
+		lives = 3; 
+		//lives = 1 ; //<--used for testing end screen
 		playerScore = 0;
 		collisionLinePosition();
 	}
@@ -298,7 +298,6 @@ function bomb() {
 function hit() {
 	//hit animation
 	player.classList.add('hit');
-	player.classList.remove('stand');
 
 	//life counter
 
@@ -321,7 +320,6 @@ function hit() {
 //called from the hit code, runs when lives = 0
 function gameover() {
 	//dead animation
-	player.classList.remove('stand');
 	player.classList.add('dead');
 
 	//cancels timers to stop the game 
