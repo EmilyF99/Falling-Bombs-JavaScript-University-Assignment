@@ -10,6 +10,7 @@ var playerScore;
 var body;
 var everytime;
 var timeout;
+var invulnerable = false;
 
 //Runs when start buttton is clicked, hides the button and sets presets
 function startGame() {
@@ -38,6 +39,7 @@ function startGame() {
 		collisionLinePosition();
 	}
 }
+
 
 //Player Movement Code (key releases)-- Thomas Butler (2021)
 function keyup(event) {
@@ -69,12 +71,19 @@ function move() {
 		var player = document.getElementById('player');
 		var positionLeft = player.offsetLeft;
 		var positionTop = player.offsetTop;
+
 		if (downPressed) {
+			if (downPressed && !invulnerable) {
 			var newTop = positionTop + 1;
 
 			var element = document.elementFromPoint(player.offsetLeft, newTop + 32);
 			if (element.classList.contains('sky') == false) {
 				player.style.top = newTop + 'px';
+			}
+			if (element.classList.contains('explosion') == true) {
+				hit();
+				invulnerable = true;
+				setTimeout(function() { invulnerable = false;}, 1500);
 			}
 
 			if (leftPressed == false) {
@@ -83,12 +92,20 @@ function move() {
 				}
 			}
 		}
+	}
 		if (upPressed) {
+			if (upPressed && !invulnerable) {
 			var newTop = positionTop - 1;
 
 			var element = document.elementFromPoint(player.offsetLeft, newTop);
 			if (element.classList.contains('sky') == false) {
 				player.style.top = newTop + 'px';
+			}
+
+			if (element.classList.contains('explosion') == true) {
+				hit();
+				invulnerable = true;
+				setTimeout(function() { invulnerable = false;}, 1500);
 			}
 
 			if (leftPressed == false) {
@@ -97,26 +114,44 @@ function move() {
 				}
 			}
 		}
+	}
 		if (leftPressed) {
-			var newLeft = positionLeft - 1;
+			if (leftPressed && !invulnerable) {
+				var newLeft = positionLeft - 1;
 
 			var element = document.elementFromPoint(newLeft, player.offsetTop);
 			if (element.classList.contains('sky') == false) {
 				player.style.left = newLeft + 'px';
 			}
+
+			if (element.classList.contains('explosion') == true) {
+				hit();
+				invulnerable = true;
+				setTimeout(function() { invulnerable = false;}, 1500);
+			}
+
 			player.className = 'character walk left';
 		}
+	}
+
 		if (rightPressed) {
+			if (rightPressed && !invulnerable) {
 			var newLeft = positionLeft + 1;
 
 			var element = document.elementFromPoint(newLeft + 32, player.offsetTop);
 			if (element.classList.contains('sky') == false) {
 				player.style.left = newLeft + 'px';
 			}
+
+			if (element.classList.contains('explosion') == true) {
+				hit();
+				invulnerable = true;
+				setTimeout(function() { invulnerable = false;}, 1500);
+			}
 			player.className = 'character walk right';
 		}
-
 	}
+}
 }
 
 //Player Movement Code (key presses)-- Thomas Butler (2021)
@@ -256,17 +291,15 @@ function bomb() {
 		}
 
 		//when hitting the grass the bombs explode. bomb is removed, explosion replaces and then the bomb is removed entirely
-		if (grassCollision == true) {
+		if (grassCollision == true ) {
 			//animation change
 			bomb.classList.add('explosion');
 			bomb.classList.remove('bomb');
 
-			bomb.classList.add('explosionCollision');
-
 			setTimeout(function () {
 				bomb.classList.remove('explosion');
 				body.removeChild(bomb);
-			}, 1000); //amount of time the explosion remains on screen
+			}, 1000); //amount of time the explosion remains on screen <-- make slower
 
 			//score counter 
 			//when a bomb explodes the player score goes up by 1
