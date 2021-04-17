@@ -81,83 +81,6 @@ aside ul {
 	background-position: 64px 0px;
 }
 
-.weapon.bow {
-	background-image: url(images/sprites.png);
-	background-position: -55px -214px;
-	width: 16px;
-	height: 32px;
-}
-
-.weapon {
-	display: none;
-	position: absolute;
-}
-
-.fire .weapon {
-	display: block;
-}
-
-.character.fire.stand.right .bow,
-.character.fire.walk.right .bow {
-	top: 12px;
-	left: 6px;
-	z-index: -1;
-	animation: enemyfireright 0.2s ease-in forwards;
-}
-
-.character.fire.stand.down .bow,
-.character.fire.walk.down .bow {
-	top: 12px;
-	left: 0px;
-	z-index: 1;
-	animation: enemyfiredown 0.2s ease-in forwards;
-}
-
-.character.fire.stand.left .bow,
-.character.fire.walk.left .bow {
-	top: 8px;
-	left: -16px;
-	z-index: -1;
-	animation: enemyfireleft 0.2s ease-in forwards;
-}
-
-.character.fire.stand.up .bow,
-.character.fire.walk.up .bow {
-	top: 12px;
-	left: 6px;
-	z-index: -2;
-	animation: enemyfireup 0.2s ease-in forwards;
-}
-
-.character.fire.stand.right .body {
-	background-position: -96px -192px;
-	margin-top: 14px;
-}
-
-.character.fire.stand.left .body {
-	background-position: -32px -192px;
-	margin-top: 14px;
-}
-
-.character.fire.stand.up .body {
-	background-position: 0px -192px;
-	margin-top: 14px;
-}
-
-.character.fire.stand.down .body {
-	background-position: -64px -192px;
-	margin-top: 14px;
-}
-
-.arrow {
-	background-image: url(images/sprites.png);
-	width: 32px;
-	height: 10px;
-	position: absolute;
-	background-position: 0px -401px;
-}
-
-
 .bomb {
 	background-image: url(images/sprites.png);
 	width: 31px;
@@ -166,16 +89,6 @@ aside ul {
 	position: absolute;
 	background-position: -96px -401px;
 	transform: rotate(90deg);
-}
-
-.bomb2 {
-	background-image: url(images/sprites.png);
-	width: 31px;
-	height: 10px;
-	left: 0px;
-	position: absolute;
-	background-position: -96px -401px;
-	transform: rotate(90deg)
 }
 
 #start:before {
@@ -213,11 +126,12 @@ aside ul {
 }
 
 .explosion {
-	width: 128px;
+	width: 120px;
 	height: 80px;
 	position: absolute;
-	margin-left: -50px;
-	border: blue 2px solid;
+	border: blue 2px solid; /*Remove comment to test collision box for explosion */
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
 }
 
 .explosion:before {
@@ -321,23 +235,6 @@ aside ul {
 	62.5% {
 		background-position: 0 -224px;
 	}
-}
-
-.arrow.right {
-	transform: rotate(-180deg)
-}
-
-
-.arrow.left {
-	transform: rotate(180deg)
-}
-
-.arrow.up {
-	transform: rotate(-90deg)
-}
-
-.arrow.down {
-	transform: rotate(90deg)
 }
 
 .character.stand.up .head {
