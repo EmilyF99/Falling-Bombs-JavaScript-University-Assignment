@@ -52,7 +52,12 @@ function startGame() {
 		var start = document.getElementById('start');
 		start.style.display = 'none';
 		lives = 3; 
+		//console.log("lives " + lives); 	// <-- Used for testing game load
 		playerScore = 0;
+
+		//playerScore = 10; //<--Used for testing score box
+		//playerScore = 100; //<--Used for testing score box
+		//console.log("score " + playerScore); // <-- Used for testing game load
 
 		//<--used for testing end screen, allows quick death to get gameover screen
 		//lives = 1 ;
@@ -311,7 +316,9 @@ function bomb() {
 			//score counter 
 			//when a bomb explodes the player score goes up by 1
 			playerScore++;
+			//console.log(playerScore); // <-- Used for testing score 
 			var score = document.getElementById('scoreValue');
+
 			//used to add the updated score value to the html
 			score.innerHTML = playerScore;
 
@@ -355,6 +362,7 @@ function hit() {
 	}
 	//after hit the life counter decrements, this effects the if and else ifs above
 	lives--;
+	console.log(lives); //<--Used for testing
 }
 
 
@@ -378,6 +386,7 @@ function gameover() {
 function stop() {
 	clearInterval(timeout);
 	clearInterval(everytime);
+	
 }
 
 //shows gameover text after game ends
@@ -471,9 +480,9 @@ function collisionLinePosition() {
 
 //source <----
 function store() {
+	//for (i = 0, j = 0; i<localStorage.length; i++, j++ ) {
+		//var key = localStorage.key(i);
 
-	/*calls the local storage when page loads to get previous score, if there is nothing store and empty array is loaded instead.
-	Parse is used to convert the array from a string into an array*/
 	var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 	//Local storage stores a key (player store) which contains a score value of the games score and a name value taken from the html form
@@ -494,8 +503,8 @@ var userStringFromLocalStorage = localStorage.getItem('PlayerScore');
 var userFromLocalStorage = JSON.parse(userStringFromLocalStorage);
 
 console.log(userStringFromLocalStorage);
-
-}
+	}
+//}
 
 //adds events and timers when the page is loaded
 function myLoadFunction() {
