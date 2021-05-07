@@ -1,6 +1,7 @@
 /*Quick Navigation 
-Line 15 - Global Variables
-Line 30 - Start Game Function
+Line 17 - Global Variables
+Line 31 - Bomb Frequency Array
+Line 46 - Start Game Function
 Line 65 - Player Movement Code, Sky and Explosion Radius Collision
 Line - Creating Bomb Code (and arrays)
 Line - Collision Code
@@ -27,24 +28,28 @@ var everytime;
 var timeout;
 var invulnerable = false;
 
+//controls the frequency the bombs spawn at the top of the screen
+function bombFrequence() {
+	var bombFrequencyArray = [];
+		bombFrequencyArray[0] = '200';
+		bombFrequencyArray[1] = '600';
+		bombFrequencyArray[2] = '1000';
+		bombFrequencyArray[3] = '1400';
+		bombFrequencyArray[4] = '2000';
+		bombFrequencyArray[5] = '2200';
+		bombFrequencyArray[6] = '2400';
+	
+		var frequency = Math.ceil(Math.random() * 500);
+
+		setTimeout(bomb, bombFrequencyArray[frequency]);
+}
+
 //Runs when start buttton is clicked
 function startGame() {
-
-	//array to set bomb spawn frequency
-		var bombFrequencyArray = [];
-		bombFrequencyArray[0] = '600';
-		bombFrequencyArray[1] = '800';
-		bombFrequencyArray[2] = '1000';
-		bombFrequencyArray[3] = '1200';
-		bombFrequencyArray[4] = '1400';
-		bombFrequencyArray[5] = '1600';
-		bombFrequencyArray[6] = '2000';
 	
-		var frequency = Math.ceil(Math.random() * 6);
+	everytime = setInterval(bombFrequence, 500); //used to adjust bomb frequency drops 
 
-	everytime = setInterval(bomb, bombFrequencyArray[frequency]); //adjusts bomb frequency drops 
-
-	 //used to set the timers to true so game does not start before player is ready
+	 //set the timers to true to start game, intially false so game does not start before player is ready
 	playing = true;
 
 	if (playing == true) {
@@ -52,9 +57,9 @@ function startGame() {
 		var start = document.getElementById('start');
 		start.style.display = 'none';
 		lives = 3; 
-		//console.log("lives " + lives); 	// <-- Used for testing game load
 		playerScore = 0;
 
+		//console.log("lives " + lives); 	// <-- Used for testing game load
 		//playerScore = 10; //<--Used for testing score box
 		//playerScore = 100; //<--Used for testing score box
 		//console.log("score " + playerScore); // <-- Used for testing game load
@@ -64,6 +69,7 @@ function startGame() {
 		
 		//starts the bottom collision line movement
 		collisionLinePosition();
+		store();
 	}
 }
 
@@ -109,11 +115,11 @@ function move() {
 				player.style.top = newTop + 'px';
 			}
 
-			//if player overlaps with the bombs explosion on the grass then the player takes damage and loses a life
+			//if player overlaps with the explosion on the grass then the player takes damage and loses a life
 			if (element.classList.contains('explosion') == true) {
 				hit();
 				//after being hit the player is set to invulnerable, this stops them being hit repeatedly by the same explosion
-				//after a time delay this is removed so that the player can be hit by another explosion if they have more lives
+				//after a time delay this is removed so that the player can be hit again
 				//when invulnerable is true the players position is pushed back away from the explosion by a pixel which stops them from overlapping
 				invulnerable = true;
 				setTimeout(function() { invulnerable = false;}, 1500);
@@ -134,11 +140,11 @@ function move() {
 			if (element.classList.contains('sky') == false) {
 				player.style.top = newTop + 'px';
 			}
-			//if player overlaps with the bombs explosion on the grass then the player takes damage and loses a life
+			//if player overlaps with the explosion on the grass then the player takes damage and loses a life
 			if (element.classList.contains('explosion') == true) {
 				hit();
 				//after being hit the player is set to invulnerable, this stops them being hit repeatedly by the same explosion
-				//after a time delay this is removed so that the player can be hit by another explosion if they have more lives
+				//after a time delay this is removed so that the player can be hit again
 				//when invulnerable is true the players position is pushed back away from the explosion by a pixel which stops them from overlapping
 				invulnerable = true;
 				setTimeout(function() { invulnerable = false;}, 1500);
@@ -160,11 +166,11 @@ function move() {
 				player.style.left = newLeft + 'px';
 			}
 
-			//if player overlaps with the bombs explosion on the grass then the player takes damage and loses a life
+			//if player overlaps with the explosion on the grass then the player takes damage and loses a life
 			if (element.classList.contains('explosion') == true) {
 				hit();
 				//after being hit the player is set to invulnerable, this stops them being hit repeatedly by the same explosion
-				//after a time delay this is removed so that the player can be hit by another explosion if they have more lives
+				//after a time delay this is removed so that the player can be hit again
 				//when invulnerable is true the players position is pushed back away from the explosion by a pixel which stops them from overlapping
 				invulnerable = true;
 				setTimeout(function() { invulnerable = false;}, 1500);
@@ -183,11 +189,11 @@ function move() {
 				player.style.left = newLeft + 'px';
 			}
 
-			//if player overlaps with the bombs explosion on the grass then the player takes damage and loses a life
+			//if player overlaps with explosion on the grass then the player takes damage and loses a life
 			if (element.classList.contains('explosion') == true) {
 				hit();
 				//after being hit the player is set to invulnerable, this stops them being hit repeatedly by the same explosion
-				//after a time delay this is removed so that the player can be hit by another explosion if they have more lives
+				//after a time delay this is removed so that the player can be hit again
 				//when invulnerable is true the players position is pushed back away from the explosion by a pixel which stops them from overlapping
 				invulnerable = true;
 				setTimeout(function() { invulnerable = false;}, 1500);
@@ -216,18 +222,20 @@ function keydown(event) {
 	}
 }
 
-//moreBomb creates a new HTML element which is then turned into a bomb
+//moreBomb creates a new HTML element which is then turned into a bomb 
 function moreBomb() {
 	var newBomb = document.createElement('div');
 	body.appendChild(newBomb);
 	newBomb.classList.add('bomb');
 	return newBomb;
 }
+
 // command for the bombs
 function bomb() {
+	//calls to create a new bomb
 	var bomb = moreBomb();
 
-	//used to set the random X position of the bombs when they spawn
+	//used to set the random X position at the top of the screen of the bombs when they spawn
 	bomb.style.left = Math.ceil(Math.random() * window.innerWidth) + "px"
 
 	//array to set bomb sprite angle (commented out due to not being able to get angle movement)
@@ -263,7 +271,6 @@ function bomb() {
 
 
 	//Collision Detection Code 
-
 	var bombTimer = setInterval(function () {
 
 		//Sets to false to reset collision at the beginning of the objects creation/ game start
@@ -296,13 +303,13 @@ function bomb() {
 			clearInterval(bombTimer);
 		}
 
-		//Bombs collide with bottom line then explode  (fail safe for elements being off screen and reducing latency issues)
+		//Bombs collide with bottom line then explode  (fail safe for elements being off screen)
 		if (element.classList.contains('bottomCollisionLine') == true) {
 			grassCollision = true;
 			clearInterval(bombTimer);
 		}
 
-		//when hitting the grass the bombs explode. bomb is removed, explosion replaces and then the bomb is removed entirely
+		//when hitting the grass the bombs explode, explosion replaces bomb and then the bomb element is removed entirely
 		if (grassCollision == true ) {
 			//animation change
 			bomb.classList.add('explosion');
@@ -316,6 +323,7 @@ function bomb() {
 			//score counter 
 			//when a bomb explodes the player score goes up by 1
 			playerScore++;
+
 			//console.log(playerScore); // <-- Used for testing score 
 			var score = document.getElementById('scoreValue');
 
@@ -386,7 +394,6 @@ function gameover() {
 function stop() {
 	clearInterval(timeout);
 	clearInterval(everytime);
-	
 }
 
 //shows gameover text after game ends
@@ -448,7 +455,7 @@ function submitScore() {
 	}, 1500);
 }
 
-//array for the rando bomb collision on the grass
+//array for the random bomb collision on the grass
 //sets the view height positions for the collision bar
 function collisionLinePosition() {
 	setInterval(function () {
@@ -475,36 +482,57 @@ function collisionLinePosition() {
 }
 
 //local storage used to score highscores
-//store is called byt the html form. Used as the forms action
+//store is called by the html form. Used as the forms action
 
-
-//source <----
 function store() {
-	//for (i = 0, j = 0; i<localStorage.length; i++, j++ ) {
-		//var key = localStorage.key(i);
+  var highScores = [];
+	//gets previous score from the game or starts the game with an empty array in local storage
+  if (localStorage.getItem('highscore')) {
+    highScores= localStorage.getItem('highscore');
+  } else {
+    highScores = [];
+  }    
+  console.log(highScores);
 
-	var highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+  //creates a record in the array that stores the player name retrieved from the form and the player score from the game session
+  var PlayerScore = {
+      Name: playerName.value,
+      Score: playerScore 
+      };
+	
+	//pushes the record to the local storage
+    highScores.push(PlayerScore);
+	
+	//sorts multiple scores highest to lowest
+    highScores.sort(function(a,b){
+        return a.score - b.score;
+    });
+  var scores= JSON.stringify(highScores);
+  localStorage.setItem("highscores", scores);
+  console.log(highScores);
+}
 
-	//Local storage stores a key (player store) which contains a score value of the games score and a name value taken from the html form
-	var PlayerScore = {
-		Score: playerScore ,
-		name: playerName.value
-		};
-		highScores.push(PlayerScore);
-		console.log(highScores);
+//function to display the code on the games highscores table
+function get() {
 
-//turns the player score from a integer into a String that can be displayed 
-var userString = JSON.stringify(PlayerScore);
+	var highScores = [];
 
-localStorage.setItem('PlayerScore', userString);
-
-var userStringFromLocalStorage = localStorage.getItem('PlayerScore');
-
-var userFromLocalStorage = JSON.parse(userStringFromLocalStorage);
-
-console.log(userStringFromLocalStorage);
+		if (localStorage.getItem('highScores')) {
+ 			 highScores = JSON.parse(localStorage.getItem('highScores'));
+		} else {
+  			highScores = [];
+		}
+	
+	//Unfinished code for displaying, does not work, ran out of time to implement
+	for(var i=0; i < highScores.length; i++){
+			
+			var name = highScores[i].Name;
+			var score = highScores[i].Score;
+			console.log(name, score);
+			
 	}
-//}
+}
+
 
 //adds events and timers when the page is loaded
 function myLoadFunction() {

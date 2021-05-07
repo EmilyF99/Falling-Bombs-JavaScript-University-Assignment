@@ -126,10 +126,10 @@ aside ul {
 }
 
 .explosion {
-	width: 10px;
-	height: 10px;
+	width: 1px;
+	height: 1px;
 	position: absolute;
-	border: blue 2px solid; /*Remove comment to test collision box for explosion */
+	/*border: blue 2px solid; /*Remove comment to test collision box for explosion */
 }
 
 .explosion:before {
@@ -655,7 +655,7 @@ ul {
 	margin-left: auto;
 	margin-right: auto;
 	width: 69vw;
-	height: 25vh;
+	height: 30vh;
 	background-color: #ccc;
 	z-index: 1000;
 	text-align: center;
@@ -771,4 +771,9 @@ ul {
 
 #submit:hover {
 	border: grey 4px solid;
+}
+
+#scoreBoardValues{
+	position: relative;
+	right: 45%;
 }
