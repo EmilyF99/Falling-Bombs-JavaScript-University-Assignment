@@ -3,14 +3,14 @@ Line 17 - Global Variables
 Line 31 - Bomb Frequency Array
 Line 46 - Start Game Function
 Line 65 - Player Movement Code, Sky and Explosion Radius Collision
-Line - Creating Bomb Code (and arrays)
-Line - Collision Code
-Line - Hit Code
-Line - Game Over Code
-Line - Score Board Code
-Line - Collision Line Array
-Line - Local Storage Code
-Line - Page Load Function
+Line 225 - Creating Bomb Code (and arrays)
+Line 273 - Collision Code
+Line 354 - Hit Code
+Line 378 - Game Over Code
+Line 419 - Score Board Code
+Line 459 - Collision Line Array
+Line 485 - Local Storage Code
+Line 539 - Page Load Function
 */
 
 
