@@ -411,6 +411,7 @@ function resetGame() {
 }
 
 //reloads window when the button is clicked
+// Source -- Nikhil Agrawal (n.d)
 function resetClicked() {
 	window.location.reload();
 }
@@ -483,6 +484,7 @@ function collisionLinePosition() {
 
 //local storage used to score highscores
 //store is called by the html form. Used as the forms action
+//Resources -- Ethan (2020), Go Make Things (2018), James Q Quick (2019), Michael Karén (2021), Tania Rascia (2017) 
 
 function store() {
   var highScores = [];
